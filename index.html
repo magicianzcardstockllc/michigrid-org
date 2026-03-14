@@ -1,827 +1,981 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Michigrid | Powering Michigan Communities Together</title>
-  <meta name="description" content="Michigrid is a community energy infrastructure plan for Michigan built around local energy cooperatives, renewable development, microgrids, legal energy pathways, and long-term reinvestment into Michigan communities." />
+  <meta name="description" content="Michigrid is a statewide community energy infrastructure framework for Michigan: cooperative development, anchor battery hubs, legal market access through MISO, microgrids, the Muskegon pilot, and long-term local reinvestment." />
   <style>
     :root {
-      --bg: #f6fbfc;
-      --bg-alt: #edf6f8;
+      --bg: #f5fbfc;
+      --bg2: #eaf5f7;
       --card: #ffffff;
       --ink: #143247;
-      --muted: #527081;
-      --line: #d8e7ec;
-      --brand: #0e6b8f;
-      --brand-2: #0fa7a1;
+      --muted: #567183;
+      --line: #d6e6eb;
+      --brand: #0d6f8f;
+      --brand2: #10a7a1;
       --dark: #0b1f2e;
-      --shadow: 0 12px 30px rgba(7, 31, 46, 0.08);
-      --radius: 18px;
-      --max: 1140px;
-    }* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
-  color: var(--ink);
-  line-height: 1.65;
-}
+      --accent: #e9fbf7;
+      --shadow: 0 14px 32px rgba(7, 31, 46, 0.08);
+      --radius: 22px;
+      --max: 1180px;
+    }
 
-img { max-width: 100%; display: block; }
-a { color: var(--brand); text-decoration: none; }
-a:hover { text-decoration: underline; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
 
-.container {
-  width: min(calc(100% - 32px), var(--max));
-  margin: 0 auto;
-}
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.94);
-  border-bottom: 1px solid rgba(216, 231, 236, 0.95);
-}
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 14px 0;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(214,230,235,.95);
+    }
 
-.brand-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
 
-.brand-wrap img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  border-radius: 12px;
-  background: white;
-  box-shadow: var(--shadow);
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
 
-.brand-text {
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  color: var(--dark);
-  font-size: 18px;
-}
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      flex: 0 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.2);
+    }
 
-.small {
-  font-size: 13px;
-  color: var(--muted);
-}
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  font-size: 14px;
-}
+    .brand-title { font-weight: 700; letter-spacing: 0.2px; }
+    .brand-sub { font-size: 13px; color: var(--muted); }
 
-.hero {
-  padding: 56px 0 34px;
-}
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 14px;
+    }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 28px;
-  align-items: center;
-}
+    .hero {
+      padding: 58px 0 34px;
+    }
 
-.eyebrow {
-  display: inline-block;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(15, 167, 161, 0.12);
-  color: var(--brand);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  margin-bottom: 16px;
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
 
-h1 {
-  font-size: clamp(36px, 6vw, 62px);
-  line-height: 1.03;
-  margin: 0 0 16px;
-  color: var(--dark);
-}
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(16,167,161,.12);
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      margin-bottom: 16px;
+    }
 
-.lead {
-  font-size: clamp(18px, 2vw, 22px);
-  color: var(--muted);
-  margin: 0 0 20px;
-  max-width: 780px;
-}
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1.02;
+      color: var(--dark);
+    }
 
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 24px 0 0;
-}
+    .lead {
+      margin: 0;
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--muted);
+      max-width: 760px;
+    }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 18px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  font-weight: 700;
-  box-shadow: var(--shadow);
-  transition: 0.2s ease;
-}
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
 
-.btn:hover { transform: translateY(-1px); text-decoration: none; }
-.btn-primary { background: var(--brand); color: white; }
-.btn-secondary { background: white; color: var(--brand); border-color: var(--line); }
-.btn-dark { background: var(--dark); color: white; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 13px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: .2s ease;
+    }
 
-.hero-card,
-.callout,
-.card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary { background: var(--brand); color: white; }
+    .btn-secondary { background: white; color: var(--brand); border-color: var(--line); }
+    .btn-dark { background: var(--dark); color: white; }
 
-.hero-card {
-  background: linear-gradient(180deg, #ffffff 0%, #f1fbfc 100%);
-  padding: 22px;
-}
+    .hero-card, .card, .callout {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-.hero-card img {
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto 20px;
-}
+    .hero-card {
+      padding: 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f1fbfc 100%);
+    }
 
-.stat-grid,
-.cards-2,
-.cards-3,
-.cards-4,
-.roadmap-grid,
-.faq-grid {
-  display: grid;
-  gap: 18px;
-}
+    .hero-badge {
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(13,111,143,.1), rgba(16,167,161,.11));
+      border: 1px solid rgba(13,111,143,.16);
+      margin-bottom: 18px;
+    }
 
-.stat-grid { grid-template-columns: repeat(2, 1fr); }
-.cards-2 { grid-template-columns: repeat(2, 1fr); }
-.cards-3 { grid-template-columns: repeat(3, 1fr); }
-.cards-4 { grid-template-columns: repeat(4, 1fr); }
-.roadmap-grid { grid-template-columns: repeat(5, 1fr); }
-.faq-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-badge strong {
+      display: block;
+      font-size: 26px;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
 
-.stat,
-.card {
-  padding: 22px;
-  height: 100%;
-}
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
 
-.stat {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-}
+    .stat {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+    }
 
-.stat strong {
-  display: block;
-  font-size: 22px;
-  color: var(--dark);
-  margin-bottom: 4px;
-}
+    .stat strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 20px;
+      color: var(--dark);
+    }
 
-section { padding: 42px 0; }
+    section { padding: 42px 0; }
+    .band {
+      background: var(--bg2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
 
-.band {
-  background: var(--bg-alt);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
+    .section-title {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.1;
+      color: var(--dark);
+    }
 
-.section-title {
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.1;
-  margin: 0 0 12px;
-  color: var(--dark);
-}
+    .section-intro {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 900px;
+    }
 
-.section-intro {
-  color: var(--muted);
-  margin: 0 0 24px;
-  max-width: 900px;
-  font-size: 18px;
-}
+    .cards-2, .cards-3, .cards-4, .timeline, .faq-grid {
+      display: grid;
+      gap: 18px;
+    }
 
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-  color: var(--dark);
-}
+    .cards-2 { grid-template-columns: repeat(2, 1fr); }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .timeline { grid-template-columns: repeat(5, 1fr); }
+    .faq-grid { grid-template-columns: repeat(2, 1fr); }
 
-.card p, .card li {
-  color: var(--muted);
-  margin-top: 0;
-}
+    .card {
+      padding: 22px;
+      height: 100%;
+    }
 
-.card ul {
-  padding-left: 18px;
-  margin: 10px 0 0;
-}
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: var(--dark);
+    }
 
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  align-items: start;
-}
+    .card p, .card li { color: var(--muted); }
+    .card ul { margin: 10px 0 0; padding-left: 18px; }
 
-.timeline-card {
-  position: relative;
-  overflow: hidden;
-}
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
 
-.timeline-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 6px;
-  background: linear-gradient(180deg, var(--brand-2), var(--brand));
-  border-radius: 999px;
-}
+    .callout {
+      padding: 26px;
+      background: linear-gradient(135deg, rgba(13,111,143,.08), rgba(16,167,161,.08));
+    }
 
-.timeline-card .inner {
-  padding-left: 16px;
-}
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
 
-.callout {
-  background: linear-gradient(135deg, rgba(14, 107, 143, 0.08), rgba(15, 167, 161, 0.08));
-  border: 1px solid rgba(14, 107, 143, 0.18);
-  border-radius: 24px;
-  padding: 26px;
-  box-shadow: var(--shadow);
-}
+    .pill {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+    }
 
-.pill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 16px;
-}
+    .mini {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
 
-.pill {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-size: 14px;
-  color: var(--ink);
-  box-shadow: var(--shadow);
-}
+    .flow {
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.8;
+    }
 
-.quote {
-  font-size: clamp(22px, 3vw, 32px);
-  line-height: 1.25;
-  color: var(--dark);
-  margin: 0;
-}
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
 
-.footer {
-  padding: 36px 0 56px;
-  font-size: 14px;
-  color: var(--muted);
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 20px;
-  align-items: start;
-}
+    th, td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
 
-.site-disclaimer {
-  margin-top: 18px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.8);
-  color: var(--muted);
-  font-size: 14px;
-}
+    th {
+      background: #f7fbfc;
+      color: var(--dark);
+      font-size: 14px;
+    }
 
-@media (max-width: 980px) {
-  .hero-grid,
-  .two-col,
-  .cards-2,
-  .cards-3,
-  .cards-4,
-  .roadmap-grid,
-  .faq-grid,
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
+    tr:last-child td { border-bottom: 0; }
 
-  .nav {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+    .timeline-card {
+      position: relative;
+      overflow: hidden;
+    }
 
-  .nav-links {
-    justify-content: flex-start;
-  }
-}
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--brand2), var(--brand));
+    }
 
+    .timeline-card .inner { padding-left: 16px; }
+
+    .quote {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.25;
+      color: var(--dark);
+    }
+
+    .footer {
+      padding: 36px 0 58px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .image-placeholder {
+      margin-top: 14px;
+      min-height: 280px;
+      border: 2px dashed var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 100%);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+    }
+
+    .image-placeholder strong {
+      display: block;
+      color: var(--dark);
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .future-image {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      display: block;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .two-col,
+      .cards-2,
+      .cards-3,
+      .cards-4,
+      .timeline,
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links { justify-content: flex-start; }
+      table { min-width: 0; }
+    }
   </style>
 </head>
 <body>
   <div class="topbar">
     <div class="container nav">
-      <div class="brand-wrap">
-        <img src="michigrid-logo.png" alt="Michigrid logo" />
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="michigrid-logo.png" alt="Michigrid logo">
+        </div>
         <div>
-          <div class="brand-text">Michigrid</div>
-          <div class="small">Powering Michigan Communities Together</div>
+          <div class="brand-title">Michigrid</div>
+          <div class="brand-sub">Powering Michigan Communities Together</div>
         </div>
       </div>
       <div class="nav-links">
         <a href="#vision">Vision</a>
         <a href="#concept">Concept</a>
-        <a href="#legal">Legal Pathways</a>
-        <a href="#muskegon">Muskegon Pilot Concept</a>
-        <a href="#flywheel">Revenue Flywheel</a>
+        <a href="#legal">Legal</a>
+        <a href="#pilot">Muskegon Pilot</a>
+        <a href="#governance">Governance</a>
+        <a href="#funding">Funding</a>
         <a href="#roadmap">Roadmap</a>
-        <a href="#support">Support</a>
-      </div>
-    </div>
-  </div>  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Michigrid — Powering Michigan Communities Together</div>
-        <h1>Help Michigan communities build energy infrastructure they can grow, own, and reinvest in for generations.</h1>
-        <p class="lead">Michigrid is a statewide network of community energy cooperatives designed to help communities develop renewable energy projects, strengthen local industry, improve energy resilience, and keep more long-term economic value inside Michigan.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#vision">Read the Vision</a>
-          <a class="btn btn-secondary" href="#muskegon">Explore the Muskegon Pilot Concept</a>
-          <a class="btn btn-dark" href="#roadmap">See the Growth Roadmap</a>
-          <a class="btn btn-secondary" href="whitepaper.html">Read the Full White Paper</a>
-        </div>
-      </div><div class="hero-card">
-    <img src="michigrid-logo.png" alt="Michigrid network logo" />
-    <div class="stat-grid">
-      <div class="stat">
-        <strong>Communities</strong>
-        Local cooperatives decide how far they want to grow.
-      </div>
-      <div class="stat">
-        <strong>Energy</strong>
-        Wind, solar, storage, microgrids, and local energy partnerships.
-      </div>
-      <div class="stat">
-        <strong>Revenue</strong>
-        Energy projects can help fund community priorities and future projects.
-      </div>
-      <div class="stat">
-        <strong>Michigan</strong>
-        A statewide network can strengthen resilience, industry, and long-term competitiveness.
+        <a href="#faq">FAQ</a>
       </div>
     </div>
   </div>
-</div>
 
-  </header>  <section class="band" id="concept">
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">The Michigan Energy Frontier</div>
+        <h1>Build the grid that powers Michigan’s future — and return the value to Michigan communities.</h1>
+        <p class="lead">Michigrid is a statewide framework for community-owned energy infrastructure: local cooperatives, shared anchor systems, legal wholesale market access, microgrids, industrial partnerships, and long-term reinvestment in the places where infrastructure is built.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#concept">Read the Concept</a>
+          <a class="btn btn-secondary" href="#pilot">Explore the Muskegon Pilot</a>
+          <a class="btn btn-dark" href="#roadmap">View the Roadmap</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-badge">
+          <strong>Michigrid</strong>
+          <div>A modular, community-owned infrastructure network designed to help Michigan communities build energy systems together and connect them into the regional grid.</div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat">
+            <strong>Energy</strong>
+            Build abundant power capacity for the AI age.
+          </div>
+          <div class="stat">
+            <strong>Communities</strong>
+            Keep more long-term value inside Michigan.
+          </div>
+          <div class="stat">
+            <strong>Industry</strong>
+            Support manufacturing, logistics, compute, and new-age infrastructure.
+          </div>
+          <div class="stat">
+            <strong>Residents</strong>
+            Reinvest revenue into housing, healthcare, education, broadband, and local dividends.
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="band" id="vision">
+    <div class="container two-col">
+      <div>
+        <h2 class="section-title">A platform for communities to build the future themselves</h2>
+        <p class="section-intro">Michigan built the last industrial era. Michigrid is built around the idea that Michigan communities can help build the next one: distributed energy, storage, AI infrastructure, electrified transportation, advanced manufacturing, and resilient local systems owned by the people who live there.</p>
+        <div class="pill-list">
+          <div class="pill">Energy sovereignty</div>
+          <div class="pill">Community infrastructure</div>
+          <div class="pill">Responsible innovation</div>
+          <div class="pill">Modular growth</div>
+          <div class="pill">Long-term stewardship</div>
+          <div class="pill">Greenfleet potential</div>
+        </div>
+      </div>
+      <div class="callout">
+        <p class="quote">“Build modular pieces that help the greater structure but are not the whole thing yet.”</p>
+        <p class="mini">That idea sits at the center of the entire project: each local asset works on its own, but also becomes part of a larger statewide network over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="concept">
     <div class="container">
       <h2 class="section-title">The Michigrid concept</h2>
-      <p class="section-intro">Michigrid is a network of community energy cooperatives across Michigan. Each participating community can develop renewable energy infrastructure such as wind, solar, and energy storage while participating in a statewide network designed to share knowledge, resources, and long-term economic benefit.</p>
+      <p class="section-intro">Michigrid is structured as a statewide network of locally governed energy cooperatives connected through shared infrastructure, shared legal pathways, and a coordinating statewide framework. The goal is not to immediately replace existing utilities. The goal is to gradually build a parallel layer of community-owned infrastructure that strengthens local economies while improving resilience and market access.</p>
       <div class="cards-3">
         <div class="card">
           <h3>Local cooperatives</h3>
-          <p>Each community can form its own cooperative under the Michigrid network.</p>
-          <ul>
-            <li>Michigrid: Muskegon Community Energy Cooperative</li>
-            <li>Michigrid: Detroit Community Energy Cooperative</li>
-            <li>Michigrid: Traverse City Community Energy Cooperative</li>
-            <li>Michigrid: Marquette Community Energy Cooperative</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Built to scale</h3>
-          <p>Each community can develop projects at its own pace while benefiting from participation in a larger system. Some may start modestly. Others may grow into major local energy and industry hubs.</p>
-        </div>
-        <div class="card">
-          <h3>What projects can include</h3>
+          <p>Each participating community forms its own cooperative responsible for local project development, land partnerships, community investment, and infrastructure choices suited to its geography and priorities.</p>
           <ul>
             <li>Wind generation</li>
             <li>Solar installations</li>
             <li>Battery storage</li>
-            <li>Microgrid infrastructure</li>
+            <li>Microgrids</li>
             <li>Industrial energy partnerships</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>  <section id="vision">
-    <div class="container">
-      <h2 class="section-title">Why Michigrid exists</h2>
-      <p class="section-intro">Energy capacity is becoming one of the defining foundations of economic growth. Artificial intelligence, advanced manufacturing, electrified transportation, logistics systems, and modern digital infrastructure all require large and reliable power supply. Communities that can build practical energy capacity will be better positioned for long-term growth.</p>
-      <div class="cards-3">
         <div class="card">
-          <h3>Why Michigan</h3>
+          <h3>Anchor systems</h3>
+          <p>Communities that cannot easily interconnect can pair local generation to anchor systems such as battery hubs, interconnection nodes, industrial campuses, or microgrid-first local loads.</p>
           <ul>
-            <li>Strong wind potential across the state</li>
-            <li>Large areas suitable for solar development</li>
-            <li>Freshwater resources important for cooling infrastructure</li>
-            <li>Industrial and engineering workforce</li>
-            <li>Transportation and logistics corridors</li>
-            <li>Proximity to major Midwest energy markets</li>
+            <li>Battery + substation hubs</li>
+            <li>Data and AI campuses</li>
+            <li>Hydrogen and industrial loads</li>
+            <li>Greenfleet charging depots</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Why communities matter</h3>
-          <p>Michigrid is built around the idea that energy projects should not just be built in Michigan — they should be built with Michigan communities and structured so those communities can share in the value they create.</p>
+          <h3>Statewide network</h3>
+          <p>A coordinating framework helps communities share engineering knowledge, financing strategies, regulatory guidance, and large regional project planning while preserving local authority.</p>
+          <ul>
+            <li>Michigrid Council</li>
+            <li>Development Authority</li>
+            <li>Technical Advisory Council</li>
+            <li>Shared funding and standards</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="why-michigan">
+    <div class="container">
+      <h2 class="section-title">Why Michigan</h2>
+      <p class="section-intro">Michigan is unusually well positioned for community energy infrastructure. The project materials repeatedly point to a combination that few regions have all at once: Great Lakes wind potential, rural land for generation, industrial brownfields, high-voltage transmission corridors, deepwater port logistics, freshwater cooling access, and proximity to major Midwest power markets.</p>
+      <div class="cards-4">
+        <div class="card"><h3>Wind</h3><p>Strong onshore and offshore potential along the Great Lakes, especially the Muskegon–Ludington corridor.</p></div>
+        <div class="card"><h3>Transmission</h3><p>Access to 138 kV, 230 kV, and 345 kV corridors that matter for real interconnection and export potential.</p></div>
+        <div class="card"><h3>Industrial land</h3><p>Brownfields, industrial shoreline parcels, and legacy power sites create realistic infrastructure footholds.</p></div>
+        <div class="card"><h3>Future industry</h3><p>Energy capacity attracts AI compute, advanced manufacturing, logistics, cold storage, fleet charging, and new industrial uses.</p></div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <h3>PNG map placeholder</h3>
+        <p>Add a Michigan corridor, network, or regional infrastructure graphic here later as a PNG. This section is intentionally left as a visual placeholder so the site can be updated without rebuilding the page structure.</p>
+
+        <div class="image-placeholder">
+          <div>
+            <strong>Future PNG Placement</strong>
+            <div>Example: Michigan energy corridor map, statewide cooperative network graphic, or Muskegon pilot visual.</div>
+          </div>
+        </div>
+
+        <!-- Replace the placeholder above later with something like this:
+        <img
+          src="michigrid-network-map.png"
+          alt="Michigrid network map"
+          class="future-image"
+        >
+        -->
+      </div>
+    </div>
+  </section>
+
+  <section id="legal">
+    <div class="container">
+      <h2 class="section-title">Legal pathways and the Michigrid entity</h2>
+      <p class="section-intro">Michigrid is designed to operate within existing energy law using pathways already used across the United States. The central legal mechanism is a nonprofit cooperative infrastructure authority that allows communities to join a statewide framework while developing local projects that can sell power into wholesale markets or pair with local anchor loads.</p>
+      <div class="cards-2">
+        <div class="card">
+          <h3>Core legal entity</h3>
+          <p><strong>Michigrid Cooperative Infrastructure Authority (MCIA)</strong></p>
+          <ul>
+            <li>Michigan nonprofit corporation</li>
+            <li>Operates with cooperative membership bylaws</li>
+            <li>Can create subsidiary project cooperatives and project entities</li>
+            <li>Holds interconnection rights, standards, and statewide project coordination</li>
+          </ul>
+          <p class="mini">This is the legal backbone that solves the problem of smaller communities lacking independent market access.</p>
         </div>
         <div class="card">
-          <h3>Why now</h3>
-          <p>Federal and state policies are encouraging grid modernization, renewable energy development, storage systems, and resilient local energy networks. This is one of the strongest windows in decades for communities to begin building energy capacity.</p>
+          <h3>Three practical legal routes</h3>
+          <ul>
+            <li><strong>Merchant generation:</strong> produce electricity and sell it into wholesale markets through MISO.</li>
+            <li><strong>Behind-the-meter / anchor load pairing:</strong> pair generation with local data, manufacturing, agriculture, logistics, or municipal loads.</li>
+            <li><strong>Microgrids:</strong> operate resilient local systems that remain useful before full retail utility control is ever considered.</li>
+          </ul>
+          <p class="mini">This lets communities start building without first taking over the local distribution grid.</p>
+        </div>
+      </div>
+
+      <div class="cards-3" style="margin-top:18px;">
+        <div class="card">
+          <h3>Wholesale market access</h3>
+          <p>Michigrid projects can operate as merchant generation facilities that produce electricity and sell it into wholesale markets rather than directly billing households at the start.</p>
+          <ul>
+            <li>Day-ahead market</li>
+            <li>Real-time market</li>
+            <li>Capacity market</li>
+            <li>Ancillary and grid services</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Community pairing framework</h3>
+          <p>When communities cannot easily connect to transmission, Michigrid can pair generation to anchor infrastructure partnerships.</p>
+          <ul>
+            <li>Battery hubs</li>
+            <li>Industrial parks</li>
+            <li>Microgrid systems</li>
+            <li>AI and compute loads</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Long-term optional pathways</h3>
+          <p>The model leaves room for future municipalization or cooperative distribution systems if communities later choose that route.</p>
+          <ul>
+            <li>Municipal utility path</li>
+            <li>Cooperative expansion</li>
+            <li>Infrastructure acquisition later</li>
+            <li>Local control grows from generation first</li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>  <section class="band" id="legal">
+  </section>
+
+  <section class="band" id="grid-limited">
     <div class="container two-col">
+      <div>
+        <h2 class="section-title">When grid access is limited</h2>
+        <p class="section-intro">Not every community has easy access to major transmission lines. Michigrid allows communities to move forward anyway by pairing energy generation with local electricity uses instead of making immediate export into the wider grid a requirement.</p>
+        <div class="pill-list">
+          <div class="pill">AI and data infrastructure</div>
+          <div class="pill">Greenhouse agriculture</div>
+          <div class="pill">Cold storage</div>
+          <div class="pill">Light manufacturing</div>
+          <div class="pill">Fleet charging</div>
+          <div class="pill">Municipal campuses</div>
+        </div>
+      </div>
       <div class="card">
-        <h2 class="section-title" style="margin-top:0;">Legal pathways for community energy projects</h2>
-        <p>Michigrid is designed to operate within existing U.S. and Michigan energy law. The concept does not require communities to become traditional electric utilities or replace existing power companies. Instead, it uses legal project structures that are already common across the United States for independent energy development.</p>
+        <h3>Local energy can still generate revenue</h3>
         <ul>
-          <li><strong>Wholesale electricity sales:</strong> renewable energy projects can sell electricity into regional markets coordinated by the Midcontinent Independent System Operator (MISO).</li>
-          <li><strong>Power purchase agreements:</strong> energy can be contracted directly with large electricity users such as manufacturing facilities, logistics operations, or data infrastructure.</li>
-          <li><strong>Independent generation projects:</strong> communities can develop renewable infrastructure without operating a full distribution utility.</li>
-          <li><strong>Cooperative governance:</strong> residents and stakeholders can guide development through democratic cooperative structures.</li>
+          <li>Lease income for landowners</li>
+          <li>Construction and maintenance jobs</li>
+          <li>Tax base expansion</li>
+          <li>Revenue for cooperative members</li>
+          <li>Funding for community reinvestment programs</li>
         </ul>
-        <p>These pathways allow communities to build energy infrastructure legally while gradually strengthening their economic and energy position.</p>
-      </div>
-      <div class="card">
-        <h3>When transmission access is limited</h3>
-        <p>Not every community has easy access to high-capacity transmission lines. In many parts of Michigan, selling large amounts of electricity into the wider grid may be difficult or slow to permit.</p>
-        <p>Michigrid addresses this by pairing generation with local electricity demand where necessary.</p>
-        <ul>
-          <li>Data processing or AI compute facilities</li>
-          <li>Greenhouse agriculture</li>
-          <li>Food processing and cold storage</li>
-          <li>Manufacturing operations</li>
-          <li>Electric vehicle fleet charging</li>
-        </ul>
-        <p>This means communities that cannot easily export power can still use locally generated electricity productively, supporting jobs, tax revenue, and economic development while the broader network continues expanding.</p>
+        <p>This means communities that cannot easily sell electricity into the grid can still benefit from energy development and build useful systems that later connect more deeply into the network.</p>
       </div>
     </div>
-  </section>  <section>
-    <div class="container two-col">
-      <div class="card">
-        <h3>How landowners and residents participate</h3>
-        <p>Landowners can participate through long-term lease agreements that allow projects such as wind turbines or solar arrays to be installed on their property while maintaining productive land use.</p>
-        <ul>
-          <li>Hosting wind turbines on agricultural land</li>
-          <li>Leasing underused acreage for solar</li>
-          <li>Supporting battery storage near substations or industrial land</li>
-          <li>Participating in community energy cooperatives</li>
-        </ul>
-        <p>Typical turbine lease agreements in the Midwest can range from <strong>$10,000 to $30,000 per turbine per year</strong>, depending on project structure and market conditions.</p>
-      </div>
-      <div class="card">
-        <h3>Built for communities to grow as far as they want</h3>
-        <p>Some communities may choose to build modest projects designed to support local resilience and generate steady reinvestment revenue. Others may pursue larger energy developments, industrial partnerships, advanced compute infrastructure, or long-term export opportunities.</p>
-        <p>Michigrid provides the building blocks, structure, and shared knowledge to support both approaches while allowing communities to decide how far they want to go.</p>
-      </div>
-    </div>
-  </section>  <section class="band" id="muskegon">
+  </section>
+
+  <section id="pilot">
     <div class="container">
-      <h2 class="section-title">The Muskegon Pilot Concept</h2>
-      <p class="section-intro">The Muskegon Pilot Concept demonstrates how a Michigrid community cooperative could begin building real energy infrastructure while creating local economic value. Muskegon County offers strong wind resources, available land, industrial heritage, and transmission proximity, making it a strong candidate to demonstrate how a community energy project could realistically begin.</p><div class="cards-4">
+      <h2 class="section-title">Muskegon pilot: the first Michigrid node</h2>
+      <p class="section-intro">Muskegon County appears throughout the project materials as the strongest early pilot region. It combines industrial shoreline land, rural renewable land, port logistics, brownfield redevelopment potential, established transmission infrastructure, and proximity to some of the most strategic grid assets in the Midwest.</p>
 
-    <div class="card">
-      <h3>Solar Development</h3>
-      <p>Solar is one of the easiest starting points for a pilot project. Muskegon contains several brownfield and underutilized industrial areas that could support large solar arrays.</p>
-      <ul>
-        <li>Typical land requirement: 5–8 acres per MW</li>
-        <li>Example project: 30 MW installation</li>
-        <li>Estimated land: 150–200 acres</li>
-        <li>Estimated generation: ~45,000 MWh per year</li>
-      </ul>
-      <p>Solar installations provide stable daytime generation and relatively low long‑term maintenance costs.</p>
-    </div>
-
-    <div class="card">
-      <h3>Wind Development</h3>
-      <p>Eastern Muskegon County contains large agricultural parcels that could support wind turbine development while allowing farms to remain productive.</p>
-      <ul>
-        <li>Modern turbines: 4–6 MW each</li>
-        <li>Turbine footprint: ~½ acre plus access road</li>
-        <li>Annual lease payments: typically $10,000–$20,000 per turbine</li>
-      </ul>
-      <p>This creates new income streams for farmers while producing large amounts of electricity.</p>
-    </div>
-
-    <div class="card">
-      <h3>Potential Townships</h3>
-      <p>Several eastern Muskegon County townships have characteristics that could support wind development clusters.</p>
-      <ul>
-        <li><strong>Moorland Township</strong> — large agricultural parcels and low density</li>
-        <li><strong>Ravenna Township</strong> — farmland suitable for turbine leasing</li>
-        <li><strong>Casnovia Township</strong> — open land capable of supporting multiple turbines</li>
-      </ul>
-      <p>A cluster of 8–12 turbines across rural parcels could generate substantial energy while supporting local landowners.</p>
-    </div>
-
-    <div class="card">
-      <h3>Battery Storage & Microgrids</h3>
-      <p>Energy storage systems help stabilize renewable generation and allow communities to operate critical infrastructure during outages.</p>
-      <ul>
-        <li>Example battery system: 20 MW / 80 MWh</li>
-        <li>Stores excess solar production</li>
-        <li>Balances wind variability</li>
-        <li>Supports emergency microgrid operations</li>
-      </ul>
-      <p>Microgrids could support hospitals, water systems, schools, and municipal buildings during grid disruptions.</p>
-    </div>
-
-  </div>
-
-  <div style="margin-top:28px" class="cards-3">
-
-    <div class="card">
-      <h3>Anchor Industry Opportunities</h3>
-      <p>Renewable generation can support local economic development by powering facilities that require large and reliable electricity supply.</p>
-      <ul>
-        <li>Data processing or AI compute facilities</li>
-        <li>Greenhouse agriculture</li>
-        <li>Cold storage and food processing</li>
-        <li>Manufacturing operations</li>
-        <li>Electric vehicle fleet charging hubs</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Community Economic Impact</h3>
-      <ul>
-        <li>Construction employment during build‑out</li>
-        <li>Long‑term technical maintenance jobs</li>
-        <li>New revenue for farmers through turbine leases</li>
-        <li>Expanded township tax base</li>
-        <li>Funding for community programs</li>
-      </ul>
-      <p>Energy infrastructure can become a long‑term revenue engine that helps support local priorities.</p>
-    </div>
-
-    <div class="card">
-      <h3>Purpose of the Pilot</h3>
-      <p>The Muskegon project is designed as a demonstration of how communities across Michigan could build their own energy capacity. Lessons learned from the pilot could help guide similar projects in other towns across the state.</p>
-      <p>Over time, each participating community could contribute to a larger Michigrid network.</p>
-    </div>
-
-  </div>
-
-</div>
-
-  </section>  <section id="flywheel">
-    <div class="container two-col">
-      <div class="callout">
-        <h2 class="section-title" style="margin-top:0;">The Michigrid revenue flywheel</h2>
-        <p>Michigrid is designed to create a long-term development cycle.</p>
-        <p><strong>Build energy infrastructure</strong><br>Wind, solar, and storage projects create electricity capacity.</p>
-        <p><strong>Generate revenue</strong><br>Electricity can be sold into regional energy markets or used to power local industry.</p>
-        <p><strong>Reinvest locally</strong><br>Revenue can fund community priorities and future projects.</p>
-        <p><strong>Expand the network</strong><br>New communities join the system and build additional infrastructure.</p>
+      <div class="cards-4">
+        <div class="card"><h3>Industrial shoreline</h3><p>Large industrial parcels and legacy power infrastructure near the port make Muskegon suitable for battery hubs, data-center power campuses, hydrogen projects, and interconnection facilities.</p></div>
+        <div class="card"><h3>Rural generation land</h3><p>Eastern Muskegon County contains agricultural parcels in areas such as Moorland, Ravenna, and Casnovia that fit wind leasing and utility-scale generation.</p></div>
+        <div class="card"><h3>Port logistics</h3><p>The Port of Muskegon offers a serious advantage for moving heavy transformers, turbine components, and major energy equipment.</p></div>
+        <div class="card"><h3>Grid position</h3><p>Muskegon sits near major injection points into the Midwest system, making it well suited for wholesale market participation and long-term export potential.</p></div>
       </div>
-      <div class="card">
-        <h3>Example allocation model</h3>
-        <ul>
-          <li><strong>40%</strong> — infrastructure expansion</li>
-          <li><strong>30%</strong> — community development</li>
-          <li><strong>20%</strong> — member dividends</li>
-          <li><strong>10%</strong> — Michigrid expansion fund</li>
-        </ul>
-        <p>This creates a self-reinforcing development model where each successful project helps build the next one.</p>
+
+      <div class="cards-3" style="margin-top:18px;">
+        <div class="card">
+          <h3>Solar development</h3>
+          <p><strong>Example pilot:</strong> 30 MW solar installation</p>
+          <ul>
+            <li>Typical land need: 150–200 acres</li>
+            <li>Typical siting: brownfields, industrial land, underused acreage</li>
+            <li>Estimated annual production: ~45,000 MWh</li>
+            <li>Stable daytime generation with relatively low operating cost</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Wind development</h3>
+          <p><strong>Potential townships:</strong> Moorland, Ravenna, Casnovia</p>
+          <ul>
+            <li>Modern turbines: 4–6 MW each</li>
+            <li>Typical turbine footprint: about 1/2 acre plus access road</li>
+            <li>Landowner lease payments: roughly $10,000–$20,000 per turbine annually</li>
+            <li>Farming can often continue around turbine sites</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Battery storage</h3>
+          <p><strong>Example battery pilot:</strong> 20 MW / 80 MWh</p>
+          <ul>
+            <li>Stores excess solar generation</li>
+            <li>Balances wind output</li>
+            <li>Provides grid stabilization services</li>
+            <li>Supports microgrids and local resilience</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:18px;">
+        <div class="card">
+          <h3>Critical pilot partners</h3>
+          <ul>
+            <li>Hospitals</li>
+            <li>Municipal buildings</li>
+            <li>Water treatment facilities</li>
+            <li>Emergency services</li>
+            <li>Schools</li>
+            <li>Cold storage and food processing</li>
+            <li>Manufacturing operations</li>
+            <li>EV fleet charging and logistics</li>
+            <li>Data processing and compute centers</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Strategic grid assets nearby</h3>
+          <ul>
+            <li><strong>Meyer Substation:</strong> major 345 kV node energized in 2022</li>
+            <li><strong>Ludington transmission hub:</strong> six 345 kV lines, ~2,292 MW pumped storage system nearby</li>
+            <li><strong>Tallmadge–Kenowa corridor:</strong> 138 kV / 230 kV / 345 kV transmission route</li>
+            <li><strong>Muskegon industrial lakeshore corridor:</strong> grid tie-ins, industrial parcels, port access</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:18px;">
+        <h3 style="margin-top:0; color:var(--dark);">The likely first anchor project</h3>
+        <p>The materials point toward a <strong>Michigrid Anchor Battery &amp; Grid Hub</strong> as the strongest first physical module: a grid-connected battery and interconnection site that can sell services into wholesale markets, then allow local solar, wind, microgrids, and anchor loads to pair to it over time.</p>
+        <div class="flow">Community generation → Michigrid battery / substation hub → MISO wholesale grid → revenue → expansion into more nodes</div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <h3>Pilot PNG placeholder</h3>
+        <p>This space can hold a future Muskegon pilot visual, corridor graphic, or anchor battery hub rendering as a PNG.</p>
+
+        <div class="image-placeholder">
+          <div>
+            <strong>Future Pilot PNG Placement</strong>
+            <div>Example: Muskegon pilot site concept, battery hub diagram, or regional infrastructure visual.</div>
+          </div>
+        </div>
+
+        <!-- Replace the placeholder above later with something like this:
+        <img
+          src="muskegon-pilot-visual.png"
+          alt="Muskegon pilot visual"
+          class="future-image"
+        >
+        -->
       </div>
     </div>
-  </section>  <section>
-    <div class="container cards-3">
-      <div class="card">
-        <h3>Adaptive technology strategy</h3>
-        <p>Traditional infrastructure projects often lock in technology for decades. Michigrid is designed to evolve. Early projects build the financial and technical capacity needed for future upgrades and new technologies.</p>
-      </div>
-      <div class="card">
-        <h3>Community benefits</h3>
-        <p>Energy projects can support broader community goals such as housing revitalization, healthcare access, education and workforce training, broadband expansion, and community infrastructure improvements.</p>
-      </div>
-      <div class="card">
-        <h3>Why now is the right time</h3>
-        <p>Major grants, financing structures, and policy support for renewable generation, storage, grid modernization, and resilient local energy systems are already in place. That makes this a strong time for communities to begin exploring projects like these.</p>
-      </div>
-    </div>
-  </section>  <section id="statewide">
+  </section>
+
+  <section class="band" id="governance">
     <div class="container">
-      <h2 class="section-title">What Michigrid Could Look Like in 20 Years</h2>
-      <p class="section-intro">The long‑term vision of Michigrid is not a single project, but a growing network of community energy cooperatives across Michigan. As more communities develop renewable generation, storage, and local energy partnerships, the collective impact could significantly strengthen Michigan’s energy capacity and economic resilience.</p><div class="cards-3">
+      <h2 class="section-title">Governance, voting, and statewide coordination</h2>
+      <p class="section-intro">The Michigrid structure is designed to balance local control with statewide collaboration. Communities retain authority over their own projects while participating in a larger network that provides engineering support, financing strategies, technical standards, and regional coordination.</p>
 
-    <div class="card">
-      <h3>Growing Community Participation</h3>
-      <p>Over time, communities across the state could form their own local cooperatives using the Michigrid framework.</p>
-      <ul>
-        <li>Michigrid: Muskegon Community Energy Cooperative</li>
-        <li>Michigrid: Detroit Community Energy Cooperative</li>
-        <li>Michigrid: Traverse City Community Energy Cooperative</li>
-        <li>Michigrid: Marquette Community Energy Cooperative</li>
-        <li>Michigrid: Alpena Community Energy Cooperative</li>
-      </ul>
-      <p>Each community would remain locally governed while benefiting from shared knowledge and collaboration across the network.</p>
-    </div>
+      <div class="cards-4">
+        <div class="card">
+          <h3>Layer 1</h3>
+          <p><strong>Statewide authority</strong></p>
+          <p>Michigrid Cooperative Infrastructure Authority manages shared standards, anchor systems, market participation, and statewide infrastructure coordination.</p>
+        </div>
+        <div class="card">
+          <h3>Layer 2</h3>
+          <p><strong>Regional infrastructure nodes</strong></p>
+          <p>Battery hubs, interconnection substations, industrial campuses, and energy anchor systems that interact directly with the regional grid.</p>
+        </div>
+        <div class="card">
+          <h3>Layer 3</h3>
+          <p><strong>Community cooperatives</strong></p>
+          <p>Locally governed entities that build projects, negotiate land partnerships, shape local priorities, and decide how revenue is used in their community.</p>
+        </div>
+        <div class="card">
+          <h3>Layer 4</h3>
+          <p><strong>Project modules</strong></p>
+          <p>Solar farms, wind projects, microgrids, battery systems, and industrial loads structured as local projects inside the broader network.</p>
+        </div>
+      </div>
 
-    <div class="card">
-      <h3>Potential Statewide Capacity</h3>
-      <p>If dozens of communities participate, Michigan could gradually build a significant amount of new renewable generation.</p>
-      <ul>
-        <li>30–50 participating communities</li>
-        <li>5–10 GW combined renewable capacity</li>
-        <li>Major wind development across rural regions</li>
-        <li>Solar on brownfields and industrial land</li>
-        <li>Battery storage supporting grid stability</li>
-      </ul>
-      <p>This capacity could strengthen Michigan’s energy independence and support major future industries.</p>
-    </div>
-
-    <div class="card">
-      <h3>Economic Impact</h3>
-      <ul>
-        <li>Billions in long‑term infrastructure investment</li>
-        <li>New construction and technical jobs</li>
-        <li>Stable income for rural landowners</li>
-        <li>Expanded local tax bases</li>
-        <li>Funding for community development programs</li>
-      </ul>
-      <p>Over time, successful projects could even position Michigan to export electricity to surrounding states during periods of surplus generation.</p>
-    </div>
-
-  </div>
-
-  <div class="callout" style="margin-top:28px">
-    <p class="quote">The goal of Michigrid is not to replace existing utilities overnight — it is to help Michigan communities gradually build the energy capacity, infrastructure, and economic strength needed for the future.</p>
-  </div>
-
-</div>
-
-  </section>  <section class="band" id="roadmap">
-    <div class="container">
-      <h2 class="section-title">A 15-year roadmap at a glance</h2>
-      <p class="section-intro">This is a staged buildout, not an overnight switch. Each phase is designed to make the next one easier.</p>
-      <div class="roadmap-grid">
-        <div class="card timeline-card"><div class="inner"><h3>Phase 1</h3><p><strong>Years 1–3</strong></p><p>Community organization and pilot planning.</p></div></div>
-        <div class="card timeline-card"><div class="inner"><h3>Phase 2</h3><p><strong>Years 3–5</strong></p><p>First generation projects and partnerships.</p></div></div>
-        <div class="card timeline-card"><div class="inner"><h3>Phase 3</h3><p><strong>Years 5–8</strong></p><p>Regional expansion and infrastructure growth.</p></div></div>
-        <div class="card timeline-card"><div class="inner"><h3>Phase 4</h3><p><strong>Years 8–12</strong></p><p>Industrial and energy export opportunities.</p></div></div>
-        <div class="card timeline-card"><div class="inner"><h3>Phase 5</h3><p><strong>Years 12–15</strong></p><p>Statewide network of community energy cooperatives.</p></div></div>
+      <div class="two-col" style="margin-top:18px;">
+        <div class="card">
+          <h3>Voting structure</h3>
+          <ul>
+            <li>Community members: municipalities, townships, counties</li>
+            <li>Resident members: individuals who purchase cooperative shares</li>
+            <li>Infrastructure members: partners and industrial participants with advisory, not controlling, roles</li>
+          </ul>
+          <p><strong>Core principle:</strong> one member = one vote. Governance is not based on who puts in the most money.</p>
+        </div>
+        <div class="card">
+          <h3>Councils and boards</h3>
+          <ul>
+            <li><strong>Michigrid Council:</strong> approves major infrastructure and financing decisions</li>
+            <li><strong>Board of Directors:</strong> operational leadership with regional and technical representation</li>
+            <li><strong>Technical Advisory Council:</strong> energy systems, grid engineering, infrastructure planning, economic development</li>
+            <li><strong>Local Councils:</strong> site planning, resident participation, project oversight, and local priorities</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>  <section id="join">
+  </section>
+
+  <section id="funding">
     <div class="container">
-      <h2 class="section-title">How Communities Could Join Michigrid</h2>
-      <p class="section-intro">Michigrid is designed as an open framework that communities across Michigan could adopt if they choose to begin developing local energy infrastructure. The process is intentionally flexible so that towns of different sizes can participate at their own pace.</p><div class="cards-3">
-    <div class="card">
-      <h3>Step 1 — Community Organization</h3>
-      <ul>
-        <li>Form a local working group</li>
-        <li>Explore cooperative structure</li>
-        <li>Identify community priorities</li>
-        <li>Begin outreach with residents and landowners</li>
-      </ul>
+      <h2 class="section-title">Funding, the revenue flywheel, and community benefit</h2>
+      <p class="section-intro">Michigrid is designed to combine multiple funding sources while building a self-reinforcing development loop. Each successful project helps fund the next one. Over time, the network becomes less dependent on new outside funding and more capable of financing its own expansion.</p>
+
+      <div class="cards-3">
+        <div class="card">
+          <h3>Funding stack</h3>
+          <ul>
+            <li>Federal energy grants</li>
+            <li>State development programs</li>
+            <li>Municipal revenue bonds</li>
+            <li>Infrastructure bank loans</li>
+            <li>Community investment and cooperative shares</li>
+            <li>Private financing and land lease partnerships</li>
+            <li>Corporate power purchase agreements</li>
+            <li>Carbon and environmental markets</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Community ownership model</h3>
+          <p>Residents can participate directly through cooperative memberships.</p>
+          <ul>
+            <li>Community Member: $50</li>
+            <li>Supporting Member: $250</li>
+            <li>Founding Member: $1,000</li>
+            <li>Each member receives one vote regardless of contribution size</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Revenue flywheel</h3>
+          <div class="flow">
+            Community cooperative forms<br>
+            ↓<br>
+            Renewable project built<br>
+            ↓<br>
+            Electricity generated<br>
+            ↓<br>
+            Energy sold / used productively<br>
+            ↓<br>
+            Revenue generated<br>
+            ↓<br>
+            Reinvestment into new projects
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Revenue allocation</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>40%</td>
+              <td>Infrastructure expansion and new energy projects</td>
+            </tr>
+            <tr>
+              <td>30%</td>
+              <td>Community development programs and local reinvestment</td>
+            </tr>
+            <tr>
+              <td>20%</td>
+              <td>Member dividends</td>
+            </tr>
+            <tr>
+              <td>10%</td>
+              <td>Michigrid expansion fund for new communities</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards-2" style="margin-top:18px;">
+        <div class="card">
+          <h3>Community reinvestment priorities</h3>
+          <ul>
+            <li>Broadband expansion</li>
+            <li>Healthcare access</li>
+            <li>Education and workforce development</li>
+            <li>Housing and property revitalization</li>
+            <li>Public infrastructure improvements</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Michigan Energy Dividend potential</h3>
+          <p>Long term, Michigrid can support a public energy dividend concept modeled after Alaska’s permanent fund approach, where part of system profits are reinvested and part are returned to residents.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Step 2 — Resource Assessment</h3>
-      <ul>
-        <li>Evaluate wind and solar potential</li>
-        <li>Identify brownfields or underused land</li>
-        <li>Map transmission access</li>
-        <li>Explore potential anchor industries</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Step 3 — Pilot Project Development</h3>
-      <ul>
-        <li>Secure land lease agreements</li>
-        <li>Conduct engineering and feasibility studies</li>
-        <li>Apply for grants and financing</li>
-        <li>Develop first renewable project</li>
-      </ul>
-    </div>
-  </div>
-
-  <p style="margin-top:18px" class="section-intro">Once operational, each cooperative could share knowledge and experience with the broader Michigrid network to help other communities begin their own projects.</p>
-</div>
-
-  </section>  <section class="band" id="funding">
+  <section class="band" id="roadmap">
     <div class="container">
-      <h2 class="section-title">Grants and Funding Opportunities</h2>
-      <p class="section-intro">One reason this moment is significant for community energy development is the large number of public and private funding programs currently supporting renewable energy, grid modernization, and local infrastructure development.</p><div class="cards-3">
-
-    <div class="card">
-      <h3>Federal Programs</h3>
-      <ul>
-        <li>U.S. Department of Energy community energy grants</li>
-        <li>USDA Rural Energy for America Program (REAP)</li>
-        <li>Inflation Reduction Act clean energy incentives</li>
-        <li>Infrastructure Investment and Jobs Act programs</li>
-      </ul>
+      <h2 class="section-title">Roadmap</h2>
+      <p class="section-intro">The project materials describe both a practical pilot timeline and a longer statewide growth path. The early goal is not to win every fight at once. It is to get the first useful module built, generate revenue, prove governance, and create a model other communities can join.</p>
+      <div class="timeline">
+        <div class="card timeline-card"><div class="inner"><h3>Phase 1</h3><p><strong>Years 1–2</strong></p><p>Form the legal entity, recruit founding leadership, organize local councils, map pilot assets, and launch feasibility, land, and interconnection work.</p></div></div>
+        <div class="card timeline-card"><div class="inner"><h3>Phase 2</h3><p><strong>Years 2–4</strong></p><p>Secure site control, complete engineering studies, develop the Muskegon pilot, and establish the first anchor battery / grid hub and project partnerships.</p></div></div>
+        <div class="card timeline-card"><div class="inner"><h3>Phase 3</h3><p><strong>Years 4–7</strong></p><p>Launch initial solar, wind, storage, and microgrid systems; begin wholesale market participation and community reinvestment.</p></div></div>
+        <div class="card timeline-card"><div class="inner"><h3>Phase 4</h3><p><strong>Years 5–10</strong></p><p>Expand into early network communities such as Traverse City, Marquette, Holland, Ludington, Alpena, Escanaba, Big Rapids, and Sault Ste. Marie.</p></div></div>
+        <div class="card timeline-card"><div class="inner"><h3>Phase 5</h3><p><strong>Years 10–20</strong></p><p>Grow regional clusters, attract industrial and compute loads, strengthen export capability, and mature into a statewide cooperative infrastructure network.</p></div></div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Michigan State Programs</h3>
-      <ul>
-        <li>Michigan EGLE renewable energy initiatives</li>
-        <li>Michigan Economic Development Corporation support</li>
-        <li>Grid modernization funding</li>
-        <li>Clean energy workforce programs</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Community Investment</h3>
-      <ul>
-        <li>Local cooperative membership shares</li>
-        <li>Crowdfunding participation</li>
-        <li>Private project financing</li>
-        <li>Land lease partnerships with farmers and property owners</li>
-      </ul>
-      <p>Combining these sources can significantly reduce financial risk for early pilot projects.</p>
-    </div>
-
-  </div>
-</div>
-
-  </section>  <section id="faq">
+  <section id="faq">
     <div class="container">
       <h2 class="section-title">Frequently asked questions</h2>
       <div class="faq-grid">
         <div class="card">
-          <h3>Is Michigrid a utility company?</h3>
-          <p>No. It is a public-facing infrastructure concept and long-term framework for community-centered energy development in Michigan.</p>
+          <h3>Is Michigrid a utility company right now?</h3>
+          <p>No. Michigrid is a framework for building community-owned infrastructure that can enter the energy economy through legal pathways like wholesale market participation, anchor load pairing, and microgrids before any full retail utility transition is considered.</p>
         </div>
         <div class="card">
-          <h3>Can communities participate without immediately selling into the broader grid?</h3>
-          <p>Yes. Projects can power local facilities directly, which means towns with limited transmission access can still use generation productively and create revenue locally.</p>
+          <h3>Why not start by replacing the local utility?</h3>
+          <p>Because the fastest practical move is generation first: build renewable and storage assets, sell power legally into wholesale markets, generate revenue, and expand from strength rather than starting with a direct wires-to-the-home takeover fight.</p>
         </div>
         <div class="card">
-          <h3>Does every town have to do the same thing?</h3>
-          <p>No. Michigrid is intentionally flexible. Each community can decide how ambitious it wants to be and what mix of projects best fits its needs.</p>
+          <h3>What makes Michigrid different from a normal solar proposal?</h3>
+          <p>Michigrid is not one project. It is a federated system: local co-ops, shared anchor systems, shared legal and engineering support, community voting, reinvestment rules, and statewide expansion built into the structure from the start.</p>
         </div>
         <div class="card">
-          <h3>Why call it a pilot concept?</h3>
-          <p>Using “pilot concept” keeps the site honest and transparent. It avoids implying permits or funding already exist while still showing how a real project could develop.</p>
+          <h3>What is the real bottleneck?</h3>
+          <p>The documents identify interconnection and transmission access as the biggest technical bottlenecks. That is why anchor battery hubs, strategic grid nodes, and paired infrastructure matter so much in the model.</p>
         </div>
       </div>
-      <div class="site-disclaimer">Michigrid is a conceptual framework for community energy development and infrastructure planning. Specific projects would operate within applicable federal, state, and regional energy regulations.</div>
     </div>
-  </section>  <section id="support">
-    <div class="container">
+  </section>
+
+  <section class="band" id="support">
+    <div class="container two-col">
       <div class="callout">
-        <p class="quote">A stronger Michigan future needs both infrastructure and public trust.</p>
-        <p class="section-intro" style="margin-top:12px;">If this vision is going to matter, Michigan also needs transparent public policy. Support clean government efforts in the state and learn more about Michiganders for Money Out of Politics.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://miunited.org/michiganders-for-money-out-of-politics-mmop/" target="_blank" rel="noopener">Learn About MMOP</a>
-          <a class="btn btn-secondary" href="https://miunited.org/events-2/" target="_blank" rel="noopener">Find Petition Events</a>
+        <h2 class="section-title" style="margin-top:0;">Built for communities to grow as far as they want</h2>
+        <p>Some communities may want modest generation that funds local resilience and reinvestment. Others may want to pursue large energy projects, AI infrastructure, industrial recruitment, electrified logistics, or long-term export strength. Michigrid is designed to support both.</p>
+        <div class="pill-list">
+          <div class="pill">Start a cooperative</div>
+          <div class="pill">Explore a local pilot</div>
+          <div class="pill">Join as a resident member</div>
+          <div class="pill">Become a land partner</div>
+          <div class="pill">Support anchor infrastructure</div>
         </div>
       </div>
+      <div class="card">
+        <h3>What comes next</h3>
+        <ul>
+          <li>Finalize the statewide legal entity</li>
+          <li>Publish the master whitepaper and Muskegon pilot packet</li>
+          <li>Map first anchor sites and likely interconnection paths</li>
+          <li>Organize founding local councils and membership</li>
+          <li>Begin grant, site control, and engineering work</li>
+        </ul>
+        <p class="mini">This rebuild is designed to carry the project clearly: the vision, the legal route, the pilot, the voting structure, the anchor systems, the funding model, and the statewide path.</p>
+      </div>
     </div>
-  </section>  <footer class="footer">
+  </section>
+
+  <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <div class="brand-wrap" style="margin-bottom:10px;">
-          <img src="michigrid-logo.png" alt="Michigrid logo" />
-          <div>
-            <div class="brand-text">Michigrid</div>
-            <div class="small">Community Energy Infrastructure for Michigan’s Future</div>
-          </div>
-        </div>
-        <div class="small">This site presents the Michigrid concept: a community energy infrastructure framework for Michigan built around local cooperatives, renewable development, legal energy pathways, and reinvestment into Michigan communities.</div>
+        <strong style="color:var(--dark); display:block; margin-bottom:8px;">Michigrid</strong>
+        <div>Community-owned energy infrastructure for Michigan’s next era.</div>
+        <div class="mini">Movement layer + infrastructure layer: communities building the future themselves, responsibly, piece by piece.</div>
       </div>
       <div>
-        <div class="small"><strong>Next phase:</strong></div>
-        <div class="small">Add a dedicated white paper page, a Muskegon pilot page, a town starter kit, and a supporter signup form.</div>
+        <strong style="color:var(--dark); display:block; margin-bottom:8px;">Core framing</strong>
+        <div class="mini">A statewide cooperative infrastructure network with anchor systems, merchant market access, microgrid-first flexibility, local voting, and long-term community reinvestment.</div>
       </div>
     </div>
   </footer>
