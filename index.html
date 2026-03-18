@@ -1,760 +1,898 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michigrid | Community Infrastructure for Michigan's Energy Future</title>
-  <meta name="description" content="Michigrid is a proposed community-centered energy infrastructure framework for Michigan built around shared hubs, local project enablement, wholesale market access, protected infrastructure, and long-term community ownership pathways." />
+  <title>Michigrid | Community Energy Infrastructure for Michigan</title>
+  <meta name="description" content="Michigrid is a proposed cooperative infrastructure platform that would enable Michigan communities to develop, own, and govern renewable energy — and access wholesale electricity markets together." />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6fbfc;
-      --bg-soft: #eef8fb;
-      --white: #ffffff;
-      --text: #0c4f79;
-      --text-strong: #0a4062;
-      --muted: #4e7186;
-      --line: rgba(12, 93, 126, 0.12);
-      --blue: #0d5b8f;
-      --blue-deep: #0b476d;
-      --teal: #1db5ba;
-      --teal-soft: #ddf6f6;
-      --lime: #bfd83f;
-      --lime-soft: #f6fadf;
-      --shadow: 0 22px 54px rgba(13, 91, 143, 0.10);
-      --radius: 24px;
-      --max: 1220px;
-    }* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(29,181,186,0.08), transparent 30%),
-    radial-gradient(circle at 100% 0%, rgba(191,216,63,0.09), transparent 28%),
-    linear-gradient(180deg, #f8fcfd 0%, #f3fafc 42%, #eef8fb 100%);
-  line-height: 1.65;
-}
+      --navy:      #0b3d5e;
+      --navy-deep: #071f30;
+      --navy-mid:  #0d4f78;
+      --teal:      #1aafb4;
+      --teal-mid:  #139fa4;
+      --teal-soft: #e2f7f8;
+      --teal-glow: rgba(26,175,180,0.12);
+      --lime:      #c8dc3a;
+      --lime-dark: #a8bc20;
+      --lime-soft: #f3f9d0;
+      --lime-glow: rgba(200,220,58,0.14);
+      --white:     #ffffff;
+      --bg:        #f6fbfc;
+      --bg2:       #eef7f8;
+      --text:      #0c3650;
+      --text-mid:  #2a5a74;
+      --muted:     #587e94;
+      --line:      rgba(11,61,94,0.09);
+      --line-t:    rgba(26,175,180,0.16);
+      --sh-sm:     0 2px 10px rgba(11,61,94,0.06);
+      --sh:        0 6px 28px rgba(11,61,94,0.09);
+      --sh-lg:     0 18px 56px rgba(11,61,94,0.12);
+      --r:         18px;
+      --r-sm:      10px;
+      --max:       1180px;
+    }
 
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--bg);line-height:1.65;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
 
-.wrap {
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-}
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:200;background:rgba(246,251,252,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);}
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .brand{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+    .brand-mark{width:40px;height:40px;border-radius:9px;background:var(--navy);display:grid;place-items:center;flex-shrink:0;}
+    .brand-mark svg{width:24px;height:24px;}
+    .brand-name{font-size:1.18rem;font-weight:800;color:var(--navy-deep);letter-spacing:-0.035em;}
+    .brand-name em{color:var(--teal);font-style:normal;}
+    .nav-links{display:flex;align-items:center;gap:24px;}
+    .nav-links a{font-size:0.86rem;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.01em;}
+    .nav-links a:hover{color:var(--navy);}
+    .nav-cta{background:var(--navy)!important;color:var(--white)!important;padding:8px 18px;border-radius:999px;font-weight:700!important;font-size:0.84rem!important;transition:background .2s!important;}
+    .nav-cta:hover{background:var(--teal-mid)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:210;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{display:none;position:fixed;inset:72px 0 0;background:rgba(246,251,252,0.98);backdrop-filter:blur(20px);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:28px;border-top:1px solid var(--line);}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-size:1.2rem;font-weight:600;color:var(--navy);letter-spacing:-0.02em;}
+    .mobile-menu .m-cta{background:var(--navy);color:var(--white);padding:14px 32px;border-radius:14px;font-size:1rem;}
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(248, 252, 253, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
+    /* ── BUTTONS ── */
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;font-weight:700;font-size:0.88rem;transition:all .2s;cursor:pointer;border:none;font-family:'Outfit',sans-serif;}
+    .btn-lime{background:var(--lime);color:var(--navy-deep);}
+    .btn-lime:hover{background:#d4e840;transform:translateY(-1px);box-shadow:0 6px 18px rgba(200,220,58,0.28);}
+    .btn-ghost{background:rgba(255,255,255,0.1);color:var(--white);border:1px solid rgba(255,255,255,0.22);}
+    .btn-ghost:hover{background:rgba(255,255,255,0.18);transform:translateY(-1px);}
+    .btn-teal{background:var(--teal);color:var(--white);}
+    .btn-teal:hover{background:var(--teal-mid);transform:translateY(-1px);box-shadow:0 6px 18px var(--teal-glow);}
+    .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--line-t);}
+    .btn-outline:hover{border-color:var(--teal);color:var(--teal-mid);}
+    .btn-navy{background:var(--navy);color:var(--white);}
+    .btn-navy:hover{background:var(--navy-mid);transform:translateY(-1px);}
 
-.topbar-inner {
-  min-height: 82px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-}
+    /* ── TYPE ── */
+    h1{font-size:clamp(2.5rem,5vw,4.1rem);font-weight:900;line-height:1.03;letter-spacing:-0.045em;color:var(--white);margin-bottom:18px;}
+    h1 .accent{color:var(--lime);}
+    h2{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;letter-spacing:-0.04em;color:var(--navy-deep);line-height:1.1;margin-bottom:14px;}
+    h3{font-size:1.08rem;font-weight:700;color:var(--navy-deep);letter-spacing:-0.02em;margin-bottom:9px;}
+    h4{font-size:.95rem;font-weight:700;color:var(--navy-deep);letter-spacing:-0.01em;margin-bottom:6px;}
+    p{color:var(--text-mid);line-height:1.72;font-size:.93rem;}
+    .lead{font-size:1.04rem;color:var(--muted);line-height:1.76;font-family:'Source Serif 4',serif;font-weight:300;}
+    .section-tag{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+    .section-tag::before{content:'';display:inline-block;width:18px;height:2px;background:var(--teal);border-radius:2px;}
+    .section-tag.lime{color:var(--lime-dark);}
+    .section-tag.lime::before{background:var(--lime-dark);}
+    .section-tag.white{color:rgba(255,255,255,0.6);}
+    .section-tag.white::before{background:rgba(255,255,255,0.4);}
+    .kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;display:flex;align-items:center;gap:5px;}
+    .kicker::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);}
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
+    /* ── LAYOUT ── */
+    section{padding:68px 0;}
+    .section-head{margin-bottom:36px;}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    .divider{height:1px;background:var(--line);}
 
-.brand-logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  display: grid;
-  place-items: center;
-  padding: 6px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  flex: 0 0 auto;
-}
+    /* ── CARDS ── */
+    .card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--sh-sm);}
+    .panel{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--sh-sm);transition:box-shadow .2s,transform .2s;}
+    .panel:hover{box-shadow:var(--sh);transform:translateY(-2px);}
 
-.brand-copy strong {
-  display: block;
-  font-size: 1.08rem;
-  color: var(--text-strong);
-  text-transform: lowercase;
-  letter-spacing: -0.02em;
-}
+    /* ── PILL ── */
+    .pill{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;}
+    .pill-teal{background:rgba(26,175,180,0.16);color:#5ee0e4;border:1px solid rgba(26,175,180,0.28);}
+    .pill-lime{background:rgba(200,220,58,0.14);color:#c2d634;border:1px solid rgba(200,220,58,0.24);}
 
-.brand-copy span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.92rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 44vw;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .hero{padding:72px 0 56px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:-140px;right:-160px;width:580px;height:580px;border-radius:50%;background:radial-gradient(circle,var(--teal-glow) 0%,transparent 65%);pointer-events:none;}
+    .hero::after{content:'';position:absolute;bottom:-100px;left:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--lime-glow) 0%,transparent 65%);pointer-events:none;}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;}
+    .hero-main{background:linear-gradient(155deg,var(--navy-deep) 0%,var(--navy) 55%,#0e5277 100%);border-radius:var(--r);padding:50px 46px;color:var(--white);position:relative;overflow:hidden;}
+    .hero-main::after{content:'';position:absolute;top:0;right:0;bottom:0;left:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='white' fill-opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;}
+    .hero-lead{font-size:1.06rem;line-height:1.72;color:rgba(255,255,255,0.72);max-width:50ch;font-family:'Source Serif 4',serif;font-weight:300;margin-bottom:34px;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:11px;}
+    .hero-side{display:flex;flex-direction:column;gap:14px;}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .stat-box{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;box-shadow:var(--sh-sm);}
+    .stat-n{font-size:2rem;font-weight:900;letter-spacing:-.04em;color:var(--navy-deep);line-height:1;margin-bottom:3px;}
+    .stat-n em{font-size:1rem;font-weight:600;color:var(--teal);font-style:normal;}
+    .stat-l{font-size:.78rem;color:var(--muted);font-weight:500;}
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  justify-content: flex-end;
-  align-items: center;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHAT IS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+    .what-main{background:linear-gradient(155deg,#ebf8f9 0%,var(--white) 100%);border:1px solid var(--line-t);border-radius:var(--r);padding:38px;}
+    .dot-list{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:11px;}
+    .dot-list li{display:flex;gap:11px;align-items:flex-start;font-size:.93rem;color:var(--text-mid);line-height:1.6;}
+    .dot-list li::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:7px;}
+    .x-list{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:9px;}
+    .x-list li{display:flex;gap:9px;align-items:flex-start;font-size:.9rem;color:var(--text-mid);line-height:1.6;}
+    .x-list li::before{content:'✕';color:#b94;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:3px;}
 
-nav a {
-  color: var(--muted);
-  font-size: 0.95rem;
-  transition: 0.2s ease;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       FLOW
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .dark-box{background:linear-gradient(155deg,var(--navy-deep) 0%,var(--navy) 100%);border-radius:var(--r);padding:46px;}
+    .dark-box h2{color:var(--white);}
+    .dark-box .lead{color:rgba(255,255,255,0.6);}
+    .flow-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;}
+    .flow-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-sm);padding:22px 18px;text-align:center;transition:background .2s;}
+    .flow-card:hover{background:rgba(255,255,255,0.1);}
+    .flow-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.3rem;}
+    .flow-card:nth-child(1) .flow-icon{background:rgba(26,175,180,0.22);border:1.5px solid rgba(26,175,180,0.4);}
+    .flow-card:nth-child(2) .flow-icon{background:rgba(26,175,180,0.16);border:1.5px solid rgba(26,175,180,0.3);}
+    .flow-card:nth-child(3) .flow-icon{background:rgba(200,220,58,0.16);border:1.5px solid rgba(200,220,58,0.3);}
+    .flow-card:nth-child(4) .flow-icon{background:rgba(200,220,58,0.22);border:1.5px solid rgba(200,220,58,0.4);}
+    .flow-arrow{display:none;}
+    .flow-card h4{color:var(--white);font-size:.98rem;margin-bottom:7px;}
+    .flow-card p{color:rgba(255,255,255,0.58);font-size:.83rem;line-height:1.58;}
+    .flow-connector{display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.2);font-size:1.4rem;margin-top:-8px;}
 
-nav a:hover {
-  color: var(--blue-deep);
-  transform: translateY(-1px);
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       STRUCTURE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .struct-panel{border-radius:var(--r);padding:30px;border:1px solid;}
+    .struct-panel.coop{background:linear-gradient(155deg,#e6f7f8 0%,var(--white) 100%);border-color:rgba(26,175,180,.22);}
+    .struct-panel.proj{background:linear-gradient(155deg,#f8f9e0 0%,var(--white) 100%);border-color:rgba(200,220,58,.28);}
+    .struct-panel.trust{background:linear-gradient(155deg,#edf3f9 0%,var(--white) 100%);border-color:rgba(11,61,94,.13);}
+    .badge{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;padding:4px 9px;border-radius:999px;margin-bottom:13px;}
+    .badge-teal{background:var(--teal-soft);color:var(--teal-mid);border:1px solid var(--line-t);}
+    .badge-lime{background:var(--lime-soft);color:#6a7c00;border:1px solid rgba(200,220,58,.28);}
+    .badge-navy{background:#e6eef5;color:var(--navy);border:1px solid rgba(11,61,94,.13);}
+    .arrow-list{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:7px;}
+    .arrow-list li{display:flex;gap:9px;align-items:flex-start;font-size:.88rem;color:var(--text-mid);line-height:1.5;}
+    .arrow-list li::before{content:'→';color:var(--teal);font-weight:700;flex-shrink:0;font-size:.78rem;margin-top:1px;}
+    .firewall{background:linear-gradient(135deg,var(--navy-deep),#0e5070);border-radius:var(--r);padding:28px 32px;color:var(--white);display:flex;align-items:center;gap:22px;margin-top:18px;}
+    .firewall-ico{font-size:1.8rem;flex-shrink:0;}
+    .firewall h4{color:var(--lime);font-size:.96rem;margin-bottom:5px;}
+    .firewall p{color:rgba(255,255,255,0.68);font-size:.87rem;margin:0;}
 
-.hero {
-  padding: 64px 0 36px;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       OWNERSHIP PHASES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px;}
+    .phase{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:22px 18px;box-shadow:var(--sh-sm);transition:box-shadow .2s,transform .2s;}
+    .phase:hover{box-shadow:var(--sh);transform:translateY(-3px);}
+    .phase.highlight{background:linear-gradient(155deg,var(--teal-soft),var(--white));border-color:var(--line-t);}
+    .phase-n{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+    .phase-t{font-size:.96rem;font-weight:700;color:var(--navy-deep);margin-bottom:8px;letter-spacing:-.01em;}
+    .phase-d{font-size:.82rem;color:var(--muted);line-height:1.55;}
 
-.hero-grid,
-.grid-2,
-.grid-3,
-.grid-4,
-.metrics,
-.timeline,
-.footer-grid {
-  display: grid;
-  gap: 18px;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       MUSKEGON
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .musk-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:start;}
+    .musk-main{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:34px;box-shadow:var(--sh-sm);}
+    .reasons{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:12px;}
+    .reasons li{display:flex;gap:12px;align-items:flex-start;font-size:.92rem;color:var(--text-mid);line-height:1.6;}
+    .reasons li .ico{font-size:.96rem;flex-shrink:0;margin-top:1px;}
+    .musk-stats{display:flex;flex-direction:column;gap:12px;}
+    .mstat{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:18px 20px;box-shadow:var(--sh-sm);display:flex;align-items:center;gap:14px;}
+    .mstat-ico{width:40px;height:40px;border-radius:9px;background:var(--teal-soft);display:grid;place-items:center;font-size:1.1rem;flex-shrink:0;}
+    .mstat-n{font-size:1.3rem;font-weight:900;color:var(--navy-deep);letter-spacing:-.03em;line-height:1;}
+    .mstat-l{font-size:.75rem;color:var(--muted);font-weight:500;margin-top:2px;}
 
-.hero-grid { grid-template-columns: 1.08fr 0.92fr; align-items: stretch; }
-.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.footer-grid { grid-template-columns: 1fr 1fr; }
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       PRINCIPLES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .principles-wrap{background:linear-gradient(155deg,#edf7f8 0%,var(--bg) 100%);border:1px solid var(--line-t);border-radius:var(--r);padding:46px;}
+    .principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;}
+    .principle{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:22px;box-shadow:var(--sh-sm);}
+    .prin-num{font-size:1.9rem;font-weight:900;color:var(--teal-soft);letter-spacing:-.05em;line-height:1;margin-bottom:8px;}
 
-.card,
-.panel,
-.metric,
-.timeline-step,
-.mini,
-.link-card,
-.quote,
-.cta,
-.footer-box,
-.hero-logo-panel,
-.point {
-  background: linear-gradient(180deg, var(--white) 0%, #f8fcfd 100%);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       MICHIGAN IMPACT
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .impact-wrap{background:var(--navy-deep);border-radius:var(--r);padding:52px;}
+    .impact-wrap h2{color:var(--white);}
+    .impact-wrap .lead{color:rgba(255,255,255,0.6);}
+    .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;}
+    .impact-card{background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r-sm);padding:22px;transition:background .2s;}
+    .impact-card:hover{background:rgba(255,255,255,0.09);}
+    .impact-card .ico{font-size:1.5rem;margin-bottom:12px;}
+    .impact-card h4{color:var(--white);margin-bottom:7px;}
+    .impact-card p{color:rgba(255,255,255,0.58);font-size:.84rem;line-height:1.63;}
 
-.hero-copy { padding: 38px; }
-.hero-side { padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       PROP M
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .propm-wrap{background:linear-gradient(155deg,var(--lime-soft) 0%,var(--white) 100%);border:1px solid rgba(200,220,58,.28);border-radius:var(--r);padding:46px;}
+    .propm-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+    .propm-does{background:var(--white);border:1px solid var(--line-t);border-radius:var(--r-sm);padding:22px;}
+    .propm-not{background:#fef8f8;border:1px solid rgba(190,80,80,.14);border-radius:var(--r-sm);padding:22px;}
+    .check-list{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:9px;}
+    .check-list li{display:flex;gap:9px;font-size:.88rem;color:var(--text-mid);line-height:1.55;}
+    .ck{color:var(--teal-mid);font-weight:700;flex-shrink:0;}
+    .cx{color:#c44;font-weight:700;flex-shrink:0;}
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: var(--teal-soft);
-  color: var(--teal);
-  border: 1px solid rgba(29,181,186,0.16);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 700;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       FAQ
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .faq-wrap{max-width:780px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid var(--line);overflow:hidden;}
+    .faq-item:first-child{border-top:1px solid var(--line);}
+    .faq-q{width:100%;background:none;border:none;text-align:left;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Outfit',sans-serif;font-size:.98rem;font-weight:600;color:var(--navy-deep);transition:color .2s;}
+    .faq-q:hover{color:var(--teal-mid);}
+    .faq-q svg{flex-shrink:0;transition:transform .3s;color:var(--teal);}
+    .faq-q.open svg{transform:rotate(45deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+    .faq-a.open{max-height:400px;padding-bottom:18px;}
+    .faq-a p{font-size:.93rem;color:var(--text-mid);line-height:1.72;}
 
-h1, h2, h3, h4 { margin: 0 0 14px; line-height: 1.1; }
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       GET INVOLVED / CONTACT
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+    .contact-main{background:linear-gradient(155deg,var(--navy-deep) 0%,#0e5070 100%);border-radius:var(--r);padding:46px;color:var(--white);}
+    .contact-main h2{color:var(--white);}
+    .contact-main .lead{color:rgba(255,255,255,0.62);}
+    .contact-cards{display:flex;flex-direction:column;gap:14px;}
+    .contact-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--sh-sm);}
+    .contact-card h4{margin-bottom:6px;}
+    .contact-card p{margin-bottom:14px;}
 
-h1 {
-  margin-top: 18px;
-  font-size: clamp(2.7rem, 5vw, 5rem);
-  letter-spacing: -0.04em;
-  color: var(--text-strong);
-  max-width: 11ch;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA BANNER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .cta-banner{background:linear-gradient(155deg,var(--navy-deep) 0%,#0e5070 100%);border-radius:var(--r);padding:58px;color:var(--white);text-align:center;position:relative;overflow:hidden;}
+    .cta-banner::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(26,175,180,.13) 0%,transparent 60%);pointer-events:none;}
+    .cta-banner h2{color:var(--white);max-width:22ch;margin:0 auto 14px;}
+    .cta-banner p{color:rgba(255,255,255,.65);font-family:'Source Serif 4',serif;font-size:1.02rem;max-width:52ch;margin:0 auto 28px;line-height:1.72;}
+    .cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
 
-h2 {
-  font-size: clamp(1.9rem, 3vw, 2.8rem);
-  letter-spacing: -0.03em;
-  color: var(--text-strong);
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOOTER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    footer{background:var(--navy-deep);color:rgba(255,255,255,.55);padding:44px 0 28px;}
+    .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+    .foot-brand .name{font-size:1.22rem;font-weight:900;letter-spacing:-.03em;margin-bottom:9px;color:var(--white);}
+    .foot-brand .name em{color:var(--teal);font-style:normal;}
+    .foot-brand p{font-size:.84rem;color:rgba(255,255,255,.45);line-height:1.65;}
+    .foot-col h5{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px;}
+    .foot-col a{display:block;font-size:.85rem;color:rgba(255,255,255,.55);margin-bottom:7px;transition:color .2s;}
+    .foot-col a:hover{color:var(--teal);}
+    .foot-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:22px;font-size:.79rem;color:rgba(255,255,255,.27);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
 
-h3 {
-  font-size: 1.18rem;
-  color: var(--text-strong);
-  letter-spacing: -0.02em;
-}
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESPONSIVE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @media(max-width:960px){
+      .hero-grid,.what-grid,.musk-grid,.propm-cols,.contact-grid,.foot-grid{grid-template-columns:1fr;}
+      .flow-row,.phases,.grid-4,.impact-grid,.principles-grid{grid-template-columns:repeat(2,1fr);}
+      .grid-3{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
+      h1{font-size:2.3rem;}
+      .hero-main{padding:34px 26px;}
+      .flow-row,.grid-4,.grid-3,.grid-2,.impact-grid,.principles-grid,.phases{grid-template-columns:1fr;}
+      section{padding:48px 0;}
+      .dark-box,.impact-wrap,.cta-banner,.propm-wrap,.principles-wrap{padding:28px 22px;}
+      .contact-main{padding:34px 26px;}
+    }
 
-.lead {
-  margin: 16px 0 0;
-  font-size: 1.05rem;
-  color: var(--muted);
-  max-width: 69ch;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 18px;
-  border-radius: 14px;
-  font-weight: 700;
-  border: 1px solid var(--line);
-  transition: 0.2s ease;
-}
-
-.button:hover { transform: translateY(-2px); }
-
-.button.primary {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
-  color: white;
-  border-color: transparent;
-}
-
-.button.secondary {
-  background: white;
-  color: var(--blue-deep);
-}
-
-.hero-points {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.point { padding: 16px; border-radius: 18px; }
-.point strong {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--blue-deep);
-  font-size: 1.03rem;
-}
-.point span { color: var(--muted); font-size: 0.92rem; }
-
-.hero-logo-panel {
-  min-height: 300px;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(29,181,186,0.10), transparent 28%),
-    radial-gradient(circle at 80% 30%, rgba(191,216,63,0.12), transparent 24%),
-    linear-gradient(180deg, #ffffff 0%, #f7fcfd 100%);
-}
-
-.hero-logo-panel img {
-  width: min(100%, 430px);
-  object-fit: contain;
-  filter: drop-shadow(0 14px 28px rgba(13,91,143,0.10));
-}
-
-.mini { padding: 18px; }
-.mini p { margin: 0; color: var(--muted); font-size: 0.94rem; }
-
-.section { padding: 32px 0; }
-.section-head {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 22px;
-  max-width: 900px;
-}
-.section-head p { margin: 0; color: var(--muted); }
-
-.panel { padding: 24px; min-height: 100%; }
-.panel p, .panel ul { margin: 0; color: var(--muted); }
-.panel ul { padding-left: 18px; margin-top: 8px; }
-.panel li + li { margin-top: 8px; }
-
-.kicker {
-  display: inline-block;
-  margin-bottom: 10px;
-  color: var(--teal);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.quote {
-  padding: 30px;
-  background: linear-gradient(135deg, rgba(29,181,186,0.08), rgba(191,216,63,0.08));
-  font-size: clamp(1.22rem, 2vw, 1.78rem);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--text-strong);
-}
-
-.quote span {
-  display: block;
-  margin-top: 16px;
-  font-size: 0.96rem;
-  color: var(--muted);
-  letter-spacing: 0;
-  line-height: 1.55;
-}
-
-.metric { padding: 18px; border-radius: 18px; }
-.metric strong {
-  display: block;
-  font-size: 1.35rem;
-  margin-bottom: 6px;
-  color: var(--blue);
-}
-.metric span { color: var(--muted); font-size: 0.92rem; }
-
-.timeline-step {
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.timeline-step::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  background: linear-gradient(180deg, var(--teal) 0%, var(--lime) 100%);
-}
-
-.timeline-step strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--blue-deep);
-  font-size: 0.92rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.timeline-step p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-.link-card { padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
-.link-card small {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--lime);
-  font-weight: 800;
-}
-.link-card p { margin: 0; color: var(--muted); }
-
-.cta {
-  padding: 32px;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 24px;
-  align-items: center;
-  background: linear-gradient(135deg, rgba(13,91,143,0.06), rgba(29,181,186,0.08), rgba(191,216,63,0.08));
-}
-
-.footer { padding: 28px 0 44px; color: var(--muted); font-size: 0.92rem; }
-.footer-box { padding: 22px; }
-
-@media (max-width: 1100px) {
-  .hero-grid,
-  .metrics,
-  .timeline,
-  .grid-4,
-  .cta,
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 780px) {
-  .topbar-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 14px 0;
-  }
-
-  nav { justify-content: flex-start; }
-
-  .hero-grid,
-  .grid-2,
-  .grid-3,
-  .grid-4,
-  .metrics,
-  .timeline,
-  .footer-grid,
-  .hero-points,
-  .cta {
-    grid-template-columns: 1fr;
-  }
-
-  .hero { padding-top: 42px; }
-  .hero-copy, .hero-side, .panel, .quote, .link-card, .cta { padding: 22px; }
-  .brand-copy span { max-width: none; }
-}
-
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+       ANIMATIONS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+    .hero-main{animation:fadeUp .5s ease both;}
+    .hero-side>*:nth-child(1){animation:fadeUp .5s .1s ease both;}
+    .hero-side>*:nth-child(2){animation:fadeUp .5s .2s ease both;}
   </style>
 </head>
-<body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a href="#top" class="brand" aria-label="Michigrid home">
-        <div class="brand-logo">
-          <img src="michigrid-logo.png" alt="Michigrid logo" />
-        </div>
-        <div class="brand-copy">
-          <strong>michigrid</strong>
-          <span>Community infrastructure for Michigan's energy future</span>
-        </div>
+<body id="top">
+
+<!-- ── PRE-FORMATION NOTICE ── -->
+<div style="background:var(--navy-deep);border-bottom:1px solid rgba(200,220,58,0.2);padding:9px 20px;text-align:center;">
+  <p style="font-size:.78rem;color:rgba(255,255,255,0.55);margin:0;line-height:1.5;">
+    <span style="color:var(--lime);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.7rem;">Pre-Formation Project</span>
+    &nbsp;·&nbsp;
+    Michigrid is a proposed cooperative infrastructure initiative. No entity has been formed. No securities are being offered. This website describes the proposed framework and invites community engagement.
+  </p>
+</div>
+
+<!-- ── NAV ── -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <div class="brand-mark" style="background:var(--white);border:1px solid var(--line);overflow:hidden;padding:4px;">
+        <img src="https://raw.githubusercontent.com/michigrid-org/michigrid-org.github.io/main/michigrid-logo.png" alt="Michigrid logo" style="width:36px;height:36px;object-fit:contain;display:block;">
+      </div>
+      <div class="brand-name">michi<em>grid</em></div>
+    </div>
+    <div class="nav-links">
+      <a href="#what">What It Is</a>
+      <a href="#how">How It Works</a>
+      <a href="#structure">Structure</a>
+      <a href="#muskegon">Muskegon</a>
+      <a href="#propm">Prop M</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Get Involved</a>
+      <a href="https://www.facebook.com/share/1EE1jT5nRe/" target="_blank" rel="noopener noreferrer" title="Follow Michigrid on Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:var(--teal-soft);border:1px solid var(--line-t);color:var(--teal-mid);transition:background .2s,color .2s;" onmouseover="this.style.background='var(--teal)';this.style.color='white'" onmouseout="this.style.background='var(--teal-soft)';this.style.color='var(--teal-mid)'">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#problem">The Problem</a>
-        <a href="#model">How It Works</a>
-        <a href="#hub">Hub Strategy</a>
-        <a href="#pilot">Pilot</a>
-        <a href="#structure">Structure</a>
-        <a href="#ownership">Ownership</a>
-        <a href="#links">Links</a>
-      </nav>
     </div>
-  </header>  <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="card hero-copy">
-          <div class="eyebrow">Michigan • Shared Hubs • Community Ownership Pathways</div>
-          <h1>Michigan can build the next energy frontier in a way that still belongs to its communities.</h1>
-          <p class="lead">
-            Michigrid is a proposed community infrastructure framework for Michigan built around a practical idea: local places need a real access point into the energy economy. Instead of forcing every community, township, regional coalition, or project sponsor to solve scale, infrastructure, storage, coordination, and long-term positioning on its own, Michigrid creates a shared hub model that local projects can pair into and grow from.
-          </p>
-          <p class="lead">
-            The purpose is not to make promises that outrun reality. The purpose is to build a serious platform that can start where Michigan communities actually are, help them connect to something stronger, and preserve a path toward deeper local ownership, stronger public benefit, and broader expansion as technology advances and legal opportunities evolve.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#model">Explore the Framework</a>
-            <a class="button secondary" href="#pilot">View the Muskegon Pilot</a>
-          </div>
-          <div class="hero-points">
-            <div class="point">
-              <strong>Hub first</strong>
-              <span>Start with a shared infrastructure anchor that helps local projects connect, stabilize, and scale.</span>
-            </div>
-            <div class="point">
-              <strong>Modular by design</strong>
-              <span>Build the practical base now and leave room for stronger capabilities as laws and technologies evolve.</span>
-            </div>
-            <div class="point">
-              <strong>Community benefit</strong>
-              <span>Keep buyback potential, local governance, and public purpose inside the structure from the beginning.</span>
-            </div>
-          </div>
-        </div><aside class="card hero-side">
-      <div class="hero-logo-panel">
-        <img src="michigrid-logo.png" alt="Michigrid logo large display" />
-      </div>
-      <div class="grid-2">
-        <div class="mini">
-          <h3>Built around your logo palette</h3>
-          <p>This version uses the blue, teal, and lime family from the Michigrid mark so the site feels tied directly to the identity you already chose.</p>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#what" class="mob-link">What It Is</a>
+  <a href="#how" class="mob-link">How It Works</a>
+  <a href="#structure" class="mob-link">Structure</a>
+  <a href="#muskegon" class="mob-link">Muskegon Pilot</a>
+  <a href="#propm" class="mob-link">Proposition M</a>
+  <a href="#faq" class="mob-link">FAQ</a>
+  <a href="#contact" class="m-cta mob-link">Get Involved</a>
+  <a href="https://www.facebook.com/share/1EE1jT5nRe/" target="_blank" rel="noopener noreferrer" class="mob-link" style="display:inline-flex;align-items:center;gap:10px;font-size:1.1rem;color:var(--teal-mid);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    Facebook
+  </a>
+</div>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div class="pill pill-teal" style="margin-bottom:22px;">
+          <svg width="7" height="7" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/></svg>
+          Michigan Community Infrastructure
         </div>
-        <div class="mini">
-          <h3>Written from your project structure</h3>
-          <p>The homepage is built around the actual Michigrid architecture: shared hubs, nonprofit coordination, community cooperatives, protected infrastructure, and buyback pathways.</p>
+        <h1>Energy that stays <span class="accent">here.</span></h1>
+        <p class="hero-lead">Michigrid is a proposed cooperative infrastructure platform designed to give Michigan communities the ability to develop, own, and govern renewable energy — and access the wholesale electricity market together.</p>
+        <div class="hero-actions">
+          <a href="#what" class="btn btn-lime">Learn how it works ↓</a>
+          <a href="#muskegon" class="btn btn-ghost">Muskegon Pilot</a>
         </div>
       </div>
-    </aside>
+      <div class="hero-side">
+        <div class="card">
+          <div class="kicker">The core idea</div>
+          <h3>Michigan communities have the land. Michigrid provides the path.</h3>
+          <p style="margin-top:9px;">Communities across Michigan have renewable potential, industrial land, and post-industrial sites ready for a second life. What they have lacked is a legal and financial structure to participate in the energy market, own the infrastructure they host, and keep the economic benefit local for generations.</p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-n">30<em>MW</em></div>
+            <div class="stat-l">Solar — Muskegon pilot</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">40<em>MW</em></div>
+            <div class="stat-l">Wind — Muskegon pilot</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">20<em>MW</em></div>
+            <div class="stat-l">Battery storage capacity</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">10<em>–25yr</em></div>
+            <div class="stat-l">Path to full community ownership</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section" id="about">
+<div class="divider"></div>
+
+<!-- ── WHAT IS MICHIGRID ── -->
+<section id="what">
+  <div class="wrap">
+    <div class="what-grid">
+      <div class="what-main">
+        <div class="section-tag">What Michigrid Is</div>
+        <h2>A cooperative infrastructure platform — not a utility.</h2>
+        <p class="lead" style="margin-top:14px;">Michigrid is proposed to be organized under Michigan cooperative law to give communities access to the regional electricity market — something they could not access alone.</p>
+        <ul class="dot-list">
+          <li>A shared infrastructure platform providing wholesale electricity market access</li>
+          <li>A cooperative development framework organized under MCL 450.3001</li>
+          <li>An aggregation mechanism connecting local projects to regional markets</li>
+          <li>A long-term public-benefit network that grows community ownership over time</li>
+          <li>A federated governance model where communities keep local control</li>
+          <li>A structural path to keep energy revenue inside Michigan communities</li>
+        </ul>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="panel">
+          <div class="kicker">What it is not</div>
+          <ul class="x-list">
+            <li>A retail electric utility — it operates in the wholesale market above the retail layer</li>
+            <li>A replacement for your existing electric provider</li>
+            <li>A speculative investment fund or financial product</li>
+            <li>A centralized state-run system — it is federated and community-governed</li>
+            <li>An all-or-nothing commitment for communities</li>
+          </ul>
+        </div>
+        <div class="panel" style="background:linear-gradient(155deg,var(--teal-soft) 0%,var(--white) 100%);border-color:var(--line-t);">
+          <div class="kicker">The structural advantage</div>
+          <h3>Starting in the wholesale market</h3>
+          <p>By operating in the MISO wholesale electricity market — not retail distribution — Michigrid can begin without acquiring utility service territories or triggering retail utility regulation. That is the legally smart launch posture that makes this buildable now, under existing Michigan law.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="how" style="background:var(--bg2);padding:68px 0;">
+  <div class="wrap">
+    <div class="dark-box">
+      <div class="section-tag white">How It Works</div>
+      <h2>From local project to regional market.</h2>
+      <p class="lead" style="margin-top:11px;">Four layers work together. Each layer does its part without any single layer having to carry everything alone.</p>
+      <div class="flow-row">
+        <div class="flow-card">
+          <div class="flow-icon">🏘️</div>
+          <h4>Local Projects</h4>
+          <p>Solar, wind, battery storage, and microgrid systems start in communities — owned by municipalities, cooperatives, landowners, or local groups.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-icon">🤝</div>
+          <h4>Local Cooperatives</h4>
+          <p>Community energy cooperatives organize local participation, governance, land relationships, and project priorities. This is where community voice lives.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-icon">⚡</div>
+          <h4>Michigrid Hub</h4>
+          <p>A shared infrastructure node provides battery storage, aggregation, grid services, and interconnection — the bridge to the regional market.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-icon">💰</div>
+          <h4>Wholesale Market</h4>
+          <p>Electricity flows into the MISO regional market. Revenue flows back through the structure to communities — not permanently to outside investors.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEGAL STRUCTURE ── -->
+<section id="structure">
   <div class="wrap">
     <div class="section-head">
-      <h2>What Michigrid is</h2>
-      <p>
-        Michigrid is a community-centered energy infrastructure network designed for Michigan. It is not primarily framed as a retail electric utility, a speculative fund, or a centralized takeover model. It is structured as a cooperative infrastructure platform that helps local projects access shared hubs, storage, interconnection strategy, and wholesale market participation.
-      </p>
-      <p>
-        Its purpose is to help communities move from simply hosting infrastructure to actually participating in it. That means creating a structure where locally rooted projects can be coordinated through shared infrastructure, supported through practical governance, and positioned for long-term public benefit.
-      </p>
+      <div class="section-tag">Legal & Organizational Structure</div>
+      <h2>Built in layers. Legally grounded.</h2>
+      <p class="lead">Michigrid uses a dual-layer legal architecture — separating cooperative membership from project-level investment. The community governance layer stays outside of securities regulation. All capital formation is properly managed within compliant entities.</p>
     </div>
     <div class="grid-3">
-      <article class="panel">
-        <div class="kicker">Access point</div>
-        <h3>A real place to start</h3>
-        <p>Michigrid is designed to give communities a practical starting point instead of forcing each local effort to solve market access and infrastructure from scratch.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Shared infrastructure</div>
-        <h3>One platform can serve many projects</h3>
-        <p>Solar, wind, storage, and local energy projects can be coordinated through common hubs instead of each one carrying the full burden of interconnection and scale.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Public value</div>
-        <h3>Built for long-term benefit</h3>
-        <p>The structure is meant to preserve a route toward community participation, protected infrastructure, and eventual stronger ownership rather than short-term extraction.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="problem">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>The problem Michigrid solves</h2>
-      <p>
-        Community energy is difficult today for structural reasons, not because communities lack ideas. Small and regional projects often run into the same barriers: high interconnection costs, transmission bottlenecks, market participation thresholds, financing challenges, and utility-centered systems that were never designed for community-scale infrastructure.
-      </p>
-      <p>
-        Those barriers make many otherwise viable projects too expensive or too fragmented to move forward. Michigrid is designed as the workaround. Instead of every project trying to shoulder those burdens alone, a shared infrastructure node allows multiple local efforts to connect into something stronger.
-      </p>
-    </div>
-    <div class="metrics">
-      <div class="metric"><strong>Interconnection</strong><span>Shared hubs reduce the burden of each project building its own market access pathway.</span></div>
-      <div class="metric"><strong>Scale</strong><span>Aggregation helps smaller projects participate in systems that are normally designed for larger players.</span></div>
-      <div class="metric"><strong>Financing</strong><span>Layered entities make project financing more realistic than one all-or-nothing local structure.</span></div>
-      <div class="metric"><strong>Local leverage</strong><span>Communities gain a stronger position than they would have as isolated project sponsors.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="model">
-  <div class="wrap grid-2">
-    <div class="quote">
-      “The goal is not to wait until every law, market condition, and technology is perfect. The goal is to create a framework strong enough to begin now, useful enough to help real communities, and flexible enough to expand as Michigan gains room to move.”
-      <span>
-        That is the core logic of Michigrid: a lawful, practical launch posture that still preserves the larger community-centered vision.
-      </span>
-    </div>
-    <div class="panel">
-      <div class="kicker">How it works</div>
-      <h3>The operating model</h3>
-      <p>
-        Local projects begin in communities. Local cooperatives help organize participation, proposals, and local priorities. Those projects pair into a Michigrid hub that provides aggregation, storage, grid services, and interconnection strategy. From there, electricity flows into the regional wholesale market rather than requiring Michigrid to begin as a retail utility.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="hub">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>The hub-first strategy</h2>
-      <p>
-        The strongest current version of Michigrid begins with the anchor hub. The first phase is not “build everything at once.” It is to establish a shared regional access point with battery capacity, interconnection infrastructure, an aggregation switchyard, and supporting operations. Once that exists, surrounding community projects can connect into it instead of each trying to build a full market-access pathway alone.
-      </p>
-    </div>
-    <div class="timeline">
-      <div class="timeline-step"><strong>Local projects</strong><p>Solar, wind, storage, microgrids, municipal energy systems, and industrial redevelopment projects begin locally.</p></div>
-      <div class="timeline-step"><strong>Local cooperatives</strong><p>Regional cooperatives organize participation, proposals, land relationships, and local priorities.</p></div>
-      <div class="timeline-step"><strong>Michigrid hub</strong><p>A shared node provides aggregation, battery storage, grid services, and interconnection strategy.</p></div>
-      <div class="timeline-step"><strong>Wholesale market</strong><p>Energy flows into the MISO wholesale market rather than requiring Michigrid to begin as a retail utility.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="pilot">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>The first Michigrid project</h2>
-      <p>
-        The first serious pilot is proposed for the Muskegon region because it combines several advantages in one place: industrial history, transmission proximity, brownfield opportunity, strong wind potential, rural land access, and port-linked infrastructure logic.
-      </p>
-    </div>
-    <div class="grid-4">
-      <article class="panel">
-        <div class="kicker">Pilot site</div>
-        <h3>Muskegon region</h3>
-        <p>A proving-ground node designed to demonstrate how shared infrastructure can support multiple surrounding projects.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Solar</div>
-        <h3>Approximately 30 MW</h3>
-        <p>A first generation layer that helps make the anchor hub a real operating platform rather than a symbolic concept.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Wind</div>
-        <h3>Approximately 40 MW</h3>
-        <p>Regional wind potential supports a larger renewable mix around the first shared access node.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Storage</div>
-        <h3>20 MW / 80 MWh</h3>
-        <p>Battery capacity is central because it makes the first node more than a generation site. It makes it an access platform.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="structure">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Legal and organizational structure</h2>
-      <p>
-        Michigrid is built around a layered legal architecture. At the top sits the Michigrid Cooperative Infrastructure Authority, a Michigan nonprofit corporation with cooperative-style membership governance. Its job is to coordinate infrastructure planning, node development, partnerships, and market participation support. It is not intended to function as a retail electric utility.
-      </p>
-    </div>
-    <div class="grid-3">
-      <article class="panel">
-        <div class="kicker">Parent entity</div>
-        <h3>Infrastructure Authority</h3>
-        <p>The coordinating body manages infrastructure planning, node development, partnerships, and system-wide strategy.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Protected layer</div>
+      <div class="struct-panel coop">
+        <div class="badge badge-teal">Non-Security Zone · MCL 450.3001</div>
+        <h3>Cooperative Authority Layer</h3>
+        <p>The Michigrid Cooperative Infrastructure Authority (MCIA) and local Community Energy Cooperatives — to be organized under the Michigan Cooperative Act upon formation.</p>
+        <ul class="arrow-list">
+          <li>Membership-based — benefits tied to participation, not capital</li>
+          <li>Patronage-based distributions — not profit dividends</li>
+          <li>Democratic governance — one member, one vote</li>
+          <li>Mission protected by the Infrastructure Trust</li>
+        </ul>
+      </div>
+      <div class="struct-panel proj">
+        <div class="badge badge-lime">Securities Zone — Compliant</div>
+        <h3>Project Entity Layer</h3>
+        <p>Site-specific LLCs for individual energy projects. This is where outside capital enters — properly isolated and legally governed.</p>
+        <ul class="arrow-list">
+          <li>Project-level capital is structured through separate entities and governed under applicable law</li>
+          <li>Governed by LLC agreements and securities law</li>
+          <li>Michigan intrastate exemption (Rule 147) where applicable</li>
+          <li>Community holds milestone-triggered purchase options</li>
+        </ul>
+      </div>
+      <div class="struct-panel trust">
+        <div class="badge badge-navy">Mission Protection</div>
         <h3>Infrastructure Trust</h3>
-        <p>A trust structure is meant to hold infrastructure assets or revenue streams and keep them tied to mission-aligned uses.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Project layer</div>
-        <h3>Local cooperatives and LLCs</h3>
-        <p>Local cooperatives root the system in actual places while project LLCs allow individual solar, wind, and storage builds to be financed and managed cleanly.</p>
-      </article>
+        <p>A protected trust layer that holds infrastructure assets and ensures they remain aligned with the cooperative mission — permanently.</p>
+        <ul class="arrow-list">
+          <li>Assets restricted to infrastructure and community purposes</li>
+          <li>Prevents speculative resale or extraction by outside investors</li>
+          <li>No privatization without two-thirds cooperative vote</li>
+          <li>Defined in statute through Proposition M Section 6</li>
+        </ul>
+      </div>
+    </div>
+    <div class="firewall">
+      <div class="firewall-ico">🔒</div>
+      <div>
+        <h4>Statutory Firewall — Section 7A of Proposition M</h4>
+        <p>Cooperative membership and project-level investment are legally distinct in statute. Membership does not confer project ownership or investment returns. The relationship between layers is contractual only — service agreements, leases, and power purchase agreements. This firewall exists in Proposition M, in the Articles of Incorporation, and in the Ownership Transition Framework.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="ownership">
-  <div class="wrap grid-2">
-    <div class="panel">
-      <div class="kicker">Community ownership</div>
-      <h2 style="font-size: clamp(1.7rem, 2.6vw, 2.4rem); margin-bottom: 14px;">Buyback pathways are part of the design</h2>
-      <p>
-        Michigrid is not just meant to “benefit” communities in vague terms. It is designed to hold open a path for real ownership. Projects can be financed with outside capital at the start, but the framework includes a community buyback mechanism that allows local cooperatives to gradually acquire larger ownership stakes over time using project revenue and structured transition rights.
-      </p>
-    </div>
-    <div class="panel">
-      <div class="kicker">Why it matters</div>
-      <h3>More than symbolic participation</h3>
-      <ul>
-        <li>Development can happen without permanently closing communities out of ownership.</li>
-        <li>Long-term value has a route to remain local instead of leaving with outside control.</li>
-        <li>The project can move beyond generic “community benefit” language into actual ownership structure.</li>
-        <li>Public value, reinvestment, and stronger local stakes become part of the architecture itself.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section">
+<!-- ── OWNERSHIP TRANSITION ── -->
+<section style="background:var(--bg2);">
   <div class="wrap">
     <div class="section-head">
-      <h2>Why this matters for Michigan</h2>
-      <p>
-        Michigrid is about more than generation alone. A strong regional energy infrastructure platform can support resilience, advanced storage, industrial redevelopment, electrified logistics, future computing loads, and other energy-intensive sectors that will increasingly shape local economies. The project is designed so that once hubs exist, they can become the backbone for broader development across Michigan.
-      </p>
+      <div class="section-tag">Community Ownership Transition</div>
+      <h2>Outside capital to community control — by design.</h2>
+      <p class="lead">Michigrid does not permanently close communities out of ownership. Projects can be financed with outside capital at the start, but the framework includes a structured path for local cooperatives to gradually acquire ownership over time using project revenue and milestone-triggered purchase options.</p>
     </div>
-    <div class="grid-3">
-      <article class="panel">
-        <div class="kicker">Resilience</div>
-        <h3>Shared infrastructure can strengthen regions</h3>
-        <p>Hubs create a new layer of practical capacity that can support multiple projects and future systems over time.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Development</div>
-        <h3>Energy infrastructure supports industry</h3>
-        <p>Reliable energy and storage capacity can help position communities for manufacturing, logistics, and other emerging opportunities.</p>
-      </article>
-      <article class="panel">
-        <div class="kicker">Long view</div>
-        <h3>Michigan should shape the future it hosts</h3>
-        <p>The point is not only to host the next wave of energy infrastructure, but to build structures that allow more of that future to be directed and benefited from here.</p>
-      </article>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-n">Phase 1</div>
+        <div class="phase-t">Development</div>
+        <p class="phase-d">Infrastructure developers, institutional capital, and grants finance initial construction. Community cooperatives are intended to hold an initial contractual and governance position from project inception, with a defined path toward increased ownership over time.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-n">Phase 2</div>
+        <div class="phase-t">Stabilization</div>
+        <p class="phase-d">Project generates wholesale electricity revenue. A defined portion flows into the Community Ownership Acquisition Fund. Investor returns are paid per the LLC agreement — separately from cooperative benefits.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-n">Phase 3</div>
+        <div class="phase-t">Ownership Transition</div>
+        <p class="phase-d">Accumulated funds exercise milestone-triggered purchase options, buying additional ownership from capital partners. Community share grows over 10–25 years — no speculation, no guaranteed appreciation.</p>
+      </div>
+      <div class="phase highlight">
+        <div class="phase-n" style="color:var(--teal);">Phase 4</div>
+        <div class="phase-t" style="color:var(--teal-mid);">Community Control</div>
+        <p class="phase-d">The cooperative achieves majority or full ownership. The project becomes a permanent community infrastructure asset. Revenue flows toward community benefit distributions and local priorities — directed by members.</p>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:18px;background:linear-gradient(155deg,var(--teal-soft),var(--white));border-color:var(--line-t);">
+      <div class="kicker">Important distinction</div>
+      <p>Community benefit distributions are <strong>patronage-based allocations</strong> derived from cooperative operations and participation — not returns on capital invested. This is legally meaningful: it keeps community participation in the cooperative layer outside of securities regulation. Members benefit because they <em>participate</em>, not because they invested.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="links">
+<!-- ── MUSKEGON ── -->
+<section id="muskegon">
   <div class="wrap">
     <div class="section-head">
-      <h2>Links and public materials</h2>
-      <p>
-        This section is set up for your project materials, GitHub pages, and civic reference links. MMOP is presented here as related civic context, not as a project partner.
-      </p>
+      <div class="section-tag">First Pilot</div>
+      <h2>Muskegon is where Michigrid begins.</h2>
+      <p class="lead">The Muskegon region combines the specific advantages that make a first pilot viable: industrial history, transmission proximity, brownfield opportunity, strong wind potential, rural land access, and port-linked infrastructure logic.</p>
     </div>
-    <div class="grid-4">
-      <article class="link-card">
-        <div>
-          <small>Project</small>
-          <h3>Project outline</h3>
-          <p>Use this for the Michigrid outline or overview document.</p>
+    <div class="musk-grid">
+      <div class="musk-main">
+        <h3 style="margin-bottom:16px;">Why Muskegon</h3>
+        <ul class="reasons">
+          <li><span class="ico">🏭</span><span><strong>Existing industrial infrastructure:</strong> Former industrial waterfront sites and brownfields suitable for energy development without new land conversion.</span></li>
+          <li><span class="ico">⚡</span><span><strong>Transmission proximity:</strong> Close access to existing transmission corridors reduces interconnection cost and queue complexity.</span></li>
+          <li><span class="ico">💨</span><span><strong>Renewable resources:</strong> Strong Lake Michigan wind corridor and excellent solar potential in surrounding townships including Moorland, Ravenna, and Casnovia.</span></li>
+          <li><span class="ico">🚢</span><span><strong>Port of Muskegon:</strong> Port logistics infrastructure for staging offshore wind components and energy equipment.</span></li>
+          <li><span class="ico">🌱</span><span><strong>Economic development alignment:</strong> Post-industrial transition creates genuine community interest in infrastructure that builds lasting local wealth.</span></li>
+          <li><span class="ico">📜</span><span><strong>Named in statute:</strong> Section 11 of Proposition M explicitly designates Muskegon as the pilot region.</span></li>
+        </ul>
+      </div>
+      <div class="musk-stats">
+        <div class="mstat"><div class="mstat-ico">☀️</div><div><div class="mstat-n">~30 MW</div><div class="mstat-l">Solar generation</div></div></div>
+        <div class="mstat"><div class="mstat-ico">💨</div><div><div class="mstat-n">~40 MW</div><div class="mstat-l">Wind generation</div></div></div>
+        <div class="mstat"><div class="mstat-ico">🔋</div><div><div class="mstat-n">20MW / 80MWh</div><div class="mstat-l">Battery storage — the access platform</div></div></div>
+        <div class="mstat" style="background:linear-gradient(135deg,var(--teal-soft),var(--white));border-color:var(--line-t);">
+          <div class="mstat-ico" style="background:var(--teal-soft);">🎯</div>
+          <div><div class="mstat-n" style="font-size:1rem;color:var(--teal-mid);">Proving ground</div><div class="mstat-l">A working node demonstrating the model before statewide expansion</div></div>
         </div>
-        <a class="button secondary" href="#">Add document link</a>
-      </article>
-      <article class="link-card">
-        <div>
-          <small>Legal</small>
-          <h3>Entity and structure documents</h3>
-          <p>Use this for legal architecture, bylaws, or trust framework materials.</p>
-        </div>
-        <a class="button secondary" href="#">Add legal link</a>
-      </article>
-      <article class="link-card">
-        <div>
-          <small>Ownership</small>
-          <h3>Community buyback framework</h3>
-          <p>Use this for the ownership transition and community benefit documents.</p>
-        </div>
-        <a class="button secondary" href="#">Add ownership link</a>
-      </article>
-      <article class="link-card">
-        <div>
-          <small>Civic reference</small>
-          <h3>MMOP</h3>
-          <p>Related civic context and public-interest reference.</p>
-        </div>
-        <a class="button primary" href="https://miunited.org/michiganders-for-money-out-of-politics-mmop/" target="_blank" rel="noopener noreferrer">Open MMOP page</a>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ── PRINCIPLES ── -->
+<section style="background:var(--bg2);">
   <div class="wrap">
-    <div class="cta">
-      <div>
-        <div class="eyebrow">Closing statement</div>
-        <h2 style="margin-top: 18px;">Michigan does not have to choose between doing nothing and giving everything away.</h2>
-        <p class="lead" style="margin-top: 14px;">
-          Michigrid is a proposal for a stronger middle path: community-enabled, infrastructure-first, expandable, and serious enough to become a real platform for local projects, future industry, and long-term public value.
-        </p>
-      </div>
-      <div>
-        <a class="button primary" href="#top">Back to top</a>
-        <p class="lead" style="font-size:0.95rem; margin-top:14px;">
-          Replace the placeholder document links with your final project files when you are ready to publish.
-        </p>
+    <div class="principles-wrap">
+      <div class="section-tag">Structural Principles</div>
+      <h2>Five things that do not change.</h2>
+      <p class="lead" style="margin-top:11px;">These are not recommendations — they are the structural requirements that keep Michigrid legally defensible and mission-aligned over time. Anyone working with or building on this system must preserve them.</p>
+      <div class="principles-grid">
+        <div class="principle"><div class="prin-num">01</div><h3>Cooperative ≠ Investment</h3><p>The cooperative layer must not be structured, described, or marketed as an investment vehicle. Membership means participation — not expectation of financial return.</p></div>
+        <div class="principle"><div class="prin-num">02</div><h3>Capital stays in the project layer</h3><p>All capital formation occurs exclusively within project-specific entities and remains legally and operationally separate from cooperative membership.</p></div>
+        <div class="principle"><div class="prin-num">03</div><h3>The firewall is structural</h3><p>The separation between cooperative and project entities must be maintained in all governance documents, financial flows, and communications — not just in language.</p></div>
+        <div class="principle"><div class="prin-num">04</div><h3>Benefits come from participation</h3><p>Community benefit distributions are patronage-based allocations from cooperative operations. Not returns on capital. This distinction is legally essential.</p></div>
+        <div class="principle"><div class="prin-num">05</div><h3>Ownership transition is contractual</h3><p>Community ownership transition occurs through milestone-based purchase options defined in project entities — not through equity rights at the cooperative level.</p></div>
+        <div class="principle" style="background:linear-gradient(155deg,var(--teal-soft),var(--white));border-color:var(--line-t);">
+          <div class="prin-num" style="color:var(--teal-soft);">↑</div>
+          <h3 style="color:var(--teal-mid);">Why these matter</h3>
+          <p>These five principles are what separate Michigrid from projects that promise community benefit and quietly deliver it to outside investors. They are structural, not aspirational.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-  </main>  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div class="footer-box">
-        <strong style="display:block; color: var(--text-strong); margin-bottom: 6px;">michigrid</strong>
-        <div>Draft project homepage for a Michigan community infrastructure proposal.</div>
-      </div>
-      <div class="footer-box">
-        <div>This version is built from the current Michigrid structure: shared hubs, nonprofit coordination, protected infrastructure, local cooperatives, project entities, and community ownership pathways.</div>
+<!-- ── MICHIGAN IMPACT ── -->
+<section>
+  <div class="wrap">
+    <div class="impact-wrap">
+      <div class="section-tag white">Why It Matters for Michigan</div>
+      <h2>What this could mean at scale.</h2>
+      <p class="lead" style="margin-top:11px;">Michigan communities have been locked out of the energy economy for structural reasons. Michigrid is a structural answer to that problem. If the model works in Muskegon and scales, the impact reaches well beyond energy generation.</p>
+      <div class="impact-grid">
+        <div class="impact-card"><div class="ico">🏘️</div><h4>Community Wealth</h4><p>Infrastructure communities own generates revenue that stays local — patronage distributions, reduced energy costs, workforce development, and reinvestment in local priorities.</p></div>
+        <div class="impact-card"><div class="ico">⚡</div><h4>Wholesale Market Access</h4><p>Communities accessing the MISO market directly — rather than as passive hosts for developer-owned projects — permanently changes who captures value from Michigan's renewable resources.</p></div>
+        <div class="impact-card"><div class="ico">🏭</div><h4>Post-Industrial Redevelopment</h4><p>Brownfields, industrial waterfronts, and former manufacturing sites become energy infrastructure. Communities that hosted industry without owning it get a second opportunity — structured differently.</p></div>
+        <div class="impact-card"><div class="ico">📜</div><h4>Legislative Precedent</h4><p>Proposition M would be the first statutory cooperative energy infrastructure framework in Michigan law. A working model travels — other states watch what Michigan does.</p></div>
+        <div class="impact-card"><div class="ico">🤝</div><h4>Cross-Community Reach</h4><p>Cooperative ownership of infrastructure has genuine cross-partisan appeal. Communities owning what's built on their land is not an ideological position — it's a practical one.</p></div>
+        <div class="impact-card"><div class="ico">🔋</div><h4>Grid Resilience</h4><p>Distributed shared infrastructure nodes create a new layer of practical grid capacity — supporting resilience, advanced storage, electrified logistics, and energy-intensive industry.</p></div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- ── PROPOSITION M ── -->
+<section id="propm" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Proposition M</div>
+      <h2>The statutory framework.</h2>
+      <p class="lead">Proposition M is a Michigan ballot initiative establishing the legal framework for Michigrid in state law. It was developed over multiple rounds of hostile legal review and hardened to avoid creating securities exposure at the cooperative level.</p>
+    </div>
+    <div class="propm-wrap">
+      <p style="font-size:.97rem;color:var(--text-mid);max-width:74ch;margin-bottom:26px;">The ballot initiative creates the statutory authority for the cooperative infrastructure network, establishes the Infrastructure Trust, defines the structural firewall between cooperative membership and project investment, and anchors everything in the Michigan Cooperative Act (MCL 450.3001 et seq.).</p>
+      <div class="propm-cols">
+        <div class="propm-does">
+          <h4 style="color:var(--teal-mid);margin-bottom:11px;">✓ What Proposition M Does</h4>
+          <ul class="check-list">
+            <li><span class="ck">✓</span> Establishes MCIA as a cooperative nonprofit under MCL 450.3001</li>
+            <li><span class="ck">✓</span> Authorizes Community Energy Cooperatives for municipalities, counties, and residents</li>
+            <li><span class="ck">✓</span> Creates shared infrastructure nodes providing MISO wholesale market access</li>
+            <li><span class="ck">✓</span> Establishes the Infrastructure Trust preventing privatization</li>
+            <li><span class="ck">✓</span> Creates Section 7A — the statutory firewall between cooperative and project layers</li>
+            <li><span class="ck">✓</span> Authorizes milestone-based community ownership transition mechanisms</li>
+            <li><span class="ck">✓</span> Designates Muskegon as the initial pilot region</li>
+          </ul>
+        </div>
+        <div class="propm-not">
+          <h4 style="color:#c44;margin-bottom:11px;">✕ What Proposition M Does Not Do</h4>
+          <ul class="check-list">
+            <li><span class="cx">✕</span> Does not create a new retail utility or replace existing electric providers</li>
+            <li><span class="cx">✕</span> Does not alter existing utility service territories</li>
+            <li><span class="cx">✕</span> Does not authorize public investment offerings or put public money at risk</li>
+            <li><span class="cx">✕</span> Does not require mandatory municipal participation</li>
+            <li><span class="cx">✕</span> Does not create profit expectations at the cooperative membership level</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;max-width:600px;margin:0 auto 40px;">
+      <div class="section-tag" style="justify-content:center;">Frequently Asked Questions</div>
+      <h2>Plain answers to real questions.</h2>
+      <p class="lead" style="margin-top:12px;">These are the questions communities actually ask. If yours isn't here, reach out.</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will my electric bill change if Michigrid comes to my community?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-a"><p>Michigrid operates in the wholesale electricity market, not in retail distribution. Your existing electric provider relationship stays the same. Over time, as community cooperatives build toward ownership of local infrastructure, members can receive patronage-based benefits including energy cost reductions — but this happens through the cooperative structure, not through your existing utility account.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I have to invest money to participate?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-a"><p>No. Cooperative membership is participation-based, not investment-based. Members join to access infrastructure services and participate in governance — not to earn a return on capital. This is the same structure as rural electric cooperatives and credit unions. You participate. You vote. You benefit from the cooperative's operations. You are not an investor.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will Michigrid compete with Consumers Energy or DTE?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-a"><p>No. Michigrid operates in the MISO wholesale market — above the retail distribution layer. It does not seek to acquire utility service territories or serve customers directly in competition with existing utilities. Proposition M explicitly states that it does not alter existing retail utility service territories. Michigrid is infrastructure, not a retail utility.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Does my city or township have to participate?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-a"><p>Participation is entirely voluntary. Proposition M establishes a framework that communities can choose to use — it does not require any municipality, county, or township to join. Cities, townships, and counties that see opportunity can form or join a local Community Energy Cooperative. Those that don't are not affected.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How does community ownership actually work? Who ends up owning what?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-a"><p>Individual energy projects (solar farms, wind installations, storage facilities) are intended to be developed through project-specific LLCs that can include outside capital. From project inception, community cooperatives are intended to hold a defined contractual and governance position, along with purchase mechanisms that can support ownership transition over time. As projects generate revenue, a defined portion is intended to accumulate in a Community Ownership Acquisition Fund. That fund would exercise purchase options over time — buying out outside capital partners as the project matures. The timeline is 10–25 years depending on project economics. No guaranteed prices, no speculation — just a structured contractual path toward community control.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Why does this need a ballot initiative? Can't it just happen under existing law?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-a"><p>The Muskegon pilot can begin under existing Michigan cooperative and energy law — it does not require Proposition M to start. Proposition M is what makes the framework permanent, statewide, and protected from being dismantled. It establishes the Infrastructure Trust (which prevents privatization), the statutory firewall between cooperative membership and investment, and the formal authority for the cooperative infrastructure network. The pilot proves the concept. Proposition M locks it in law.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is this legally safe? Has it been reviewed by attorneys?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-a"><p>The statutory language, entity structure, and governing documents have been developed through multiple rounds of adversarial legal stress-testing and are prepared for formal counsel review — specifically examining whether the cooperative layer triggers securities regulation under the Howey test. The structure was designed from the ground up to keep cooperative membership outside of securities classification, with all investment activity properly isolated in project-specific entities. Michigrid has not yet been formally incorporated. Attorney engagement to validate the structure and guide entity formation is the immediate next step before any entity is filed or any capital is raised.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GET INVOLVED ── -->
+<section id="contact" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-main">
+        <div class="section-tag white">Get Involved</div>
+        <h2>The next step is a conversation.</h2>
+        <p class="lead" style="margin-top:12px;margin-bottom:24px;">Michigrid is in active development. Whether you're a community member, a municipal official, an attorney, or an energy partner — the right conversation now is what moves this from framework to reality.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <a href="mailto:info@michigrid.org" class="btn btn-lime">Send a Message</a>
+          <a href="https://www.facebook.com/share/1EE1jT5nRe/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="display:inline-flex;align-items:center;gap:9px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Follow on Facebook
+          </a>
+        </div>
+      </div>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="kicker">For Community Members</div>
+          <h4>Learn and get informed</h4>
+          <p>Want to understand how Michigrid would work in your community, what it would mean for your energy costs, or how cooperative membership would work? Get in touch.</p>
+          <a href="mailto:info@michigrid.org?subject=Community Inquiry" class="btn btn-outline" style="width:100%;justify-content:center;">Contact Us</a>
+        </div>
+        <div class="contact-card">
+          <div class="kicker">For Municipal Officials</div>
+          <h4>Explore the Muskegon pilot</h4>
+          <p>We have a full municipal conversation guide, a one-pager, and a legal justification brief ready for official review. No financial commitment is required to begin the conversation.</p>
+          <a href="mailto:info@michigrid.org?subject=Municipal Inquiry" class="btn btn-teal" style="width:100%;justify-content:center;">Request Documents</a>
+        </div>
+        <div class="contact-card">
+          <div class="kicker">For Attorneys & Partners</div>
+          <h4>Review the legal framework</h4>
+          <p>A complete legal justification brief, Proposition M vLocked, and revised Articles of Incorporation are available for counsel review. The structure is designed for scrutiny.</p>
+          <a href="mailto:info@michigrid.org?subject=Legal Review Request" class="btn btn-navy" style="width:100%;justify-content:center;">Request Legal Brief</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section style="padding:68px 0;">
+  <div class="wrap">
+    <div class="cta-banner">
+      <div class="pill pill-lime" style="margin:0 auto 22px;display:inline-flex;">Michigan does not have to choose between doing nothing and giving everything away.</div>
+      <h2>A stronger path is already built.</h2>
+      <p>Michigrid is the legally grounded, community-centered, infrastructure-first framework for Michigan energy. The foundational documents have been developed and aligned for counsel review. The legal structure is designed. The pilot site is identified. The next step is turning framework into reality — and that starts with real conversations in Michigan.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-lime">Get Involved</a>
+        <a href="https://www.facebook.com/share/1EE1jT5nRe/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="display:inline-flex;align-items:center;gap:9px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Follow on Facebook
+        </a>
+        <a href="https://michigrid.org" class="btn btn-ghost">Visit michigrid.org</a>
+        <a href="#top" class="btn btn-ghost">Back to Top ↑</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <img src="https://raw.githubusercontent.com/michigrid-org/michigrid-org.github.io/main/michigrid-logo.png" alt="Michigrid" style="width:48px;height:48px;object-fit:contain;background:white;border-radius:8px;padding:4px;">
+          <div class="name">michi<em>grid</em></div>
+        </div>
+        <p>A proposed cooperative infrastructure platform designed to enable Michigan communities to develop, own, and govern renewable energy infrastructure — and access wholesale electricity markets together.</p>
+        <p style="margin-top:10px;color:rgba(255,255,255,0.35);font-size:.8rem;font-style:italic;">Pre-formation project — entity filing pending legal counsel review.</p>
+        <div style="display:flex;gap:12px;margin-top:16px;">
+          <a href="https://www.facebook.com/share/1EE1jT5nRe/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 14px;font-size:.82rem;color:rgba(255,255,255,0.7);transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Follow on Facebook
+          </a>
+          <a href="https://michigrid.org" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 14px;font-size:.82rem;color:rgba(255,255,255,0.7);transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            michigrid.org
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>The Project</h5>
+        <a href="#what">What Michigrid Is</a>
+        <a href="#how">How It Works</a>
+        <a href="#structure">Legal Structure</a>
+        <a href="#muskegon">Muskegon Pilot</a>
+        <a href="#propm">Proposition M</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Documents</h5>
+        <a href="mailto:info@michigrid.org?subject=Document Request: Proposition M">Proposition M (vLocked) — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Document Request: Legal Brief">Legal Justification Brief — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Document Request: One-Pager">Community One-Pager — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Document Request: Articles and Bylaws">Articles &amp; Bylaws — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Document Request: Ownership Transition Framework">Ownership Transition Framework — Request</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 Michigrid Project · michigrid.org</span>
+      <span>Proposed cooperative framework — entity formation pending · Not yet organized or incorporated</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    // open this one if it was closed
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+</script>
 </body>
 </html>
