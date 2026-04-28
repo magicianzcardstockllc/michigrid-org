@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,6 +15,7 @@
     :root {
       --navy:      #0b3d5e;
       --navy-deep: #071f30;
+    --bg-soft:   #f6fbfc;
       --navy-mid:  #0d4f78;
       --teal:      #1aafb4;
       --teal-mid:  #139fa4;
@@ -318,7 +319,11 @@
     .hero-main{animation:fadeUp .5s ease both;}
     .hero-side>*:nth-child(1){animation:fadeUp .5s .1s ease both;}
     .hero-side>*:nth-child(2){animation:fadeUp .5s .2s ease both;}
-  </style>
+  
+.card-icon{font-size:1.45rem;margin-bottom:12px;}
+.card-title{font-size:1rem;font-weight:800;color:var(--navy-deep);margin-bottom:8px;letter-spacing:-.02em;}
+.card-body{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+</style>
 </head>
 <body id="top">
 
@@ -415,7 +420,7 @@
           </div>
           <div class="stat-box">
             <div class="stat-n">10<em>–25yr</em></div>
-            <div class="stat-l">Path to full community ownership</div>
+            <div class="stat-l">Ownership transition pathway</div>
           </div>
         </div>
       </div>
@@ -556,31 +561,56 @@
     <div class="section-head">
       <div class="section-tag">Community Ownership Transition</div>
       <h2>Outside capital to community control — by design.</h2>
-      <p class="lead">Michigrid does not permanently close communities out of ownership. Projects can be financed with outside capital at the start, but the framework includes a structured path for local cooperatives to gradually acquire ownership over time using project revenue and milestone-triggered purchase options.</p>
+      <p class="lead">Michigrid does not permanently close communities out of ownership. Projects are financed with outside capital at the start, but the framework includes a structured, contractual path for local cooperatives to acquire ownership over time using project revenue and defined purchase options — not balloon payments, not speculation.</p>
     </div>
     <div class="phases">
       <div class="phase">
         <div class="phase-n">Phase 1</div>
         <div class="phase-t">Development</div>
-        <p class="phase-d">Infrastructure developers, institutional capital, and grants finance initial construction. Community cooperatives are intended to hold an initial contractual and governance position from project inception, with a defined path toward increased ownership over time.</p>
+        <p class="phase-d">Infrastructure developers, institutional capital, and grants finance initial construction. The community cooperative holds a defined governance position and contractual purchase rights from project inception — not from project completion. Ownership transition begins at project launch, not at project maturity.</p>
       </div>
       <div class="phase">
         <div class="phase-n">Phase 2</div>
         <div class="phase-t">Stabilization</div>
-        <p class="phase-d">Project generates wholesale electricity revenue. A defined portion flows into the Community Ownership Acquisition Fund. Investor returns are paid per the LLC agreement — separately from cooperative benefits.</p>
+        <p class="phase-d">Project generates wholesale electricity revenue through MISO market participation. A defined percentage — typically 15–25% of net project revenue, set in the LLC agreement — flows into the Community Ownership Acquisition Fund. Investor returns are paid from a separate revenue tier, per the LLC agreement. The two flows are legally and operationally distinct.</p>
       </div>
       <div class="phase">
         <div class="phase-n">Phase 3</div>
         <div class="phase-t">Ownership Transition</div>
-        <p class="phase-d">Accumulated funds exercise milestone-triggered purchase options, buying additional ownership from capital partners. Community share grows over 10–25 years — no speculation, no guaranteed appreciation.</p>
+        <p class="phase-d">Accumulated funds exercise milestone-triggered purchase options at pre-agreed prices, acquiring additional ownership from capital partners in tranches. Purchase triggers are production-based (revenue milestones), time-based (contract anniversaries), or both — defined per project in the LLC agreement. No balloon payments. No single buyout moment. The community share grows incrementally as the fund accumulates and exercises options.</p>
       </div>
       <div class="phase highlight">
         <div class="phase-n" style="color:var(--teal);">Phase 4</div>
         <div class="phase-t" style="color:var(--teal-mid);">Community Control</div>
-        <p class="phase-d">The cooperative achieves majority or full ownership. The project becomes a permanent community infrastructure asset. Revenue flows toward community benefit distributions and local priorities — directed by members.</p>
+        <p class="phase-d">The cooperative achieves majority or full ownership. The project becomes a permanent community infrastructure asset held in the Mission Protection Infrastructure Trust. Revenue flows toward community benefit distributions and local reinvestment — directed by members, not outside capital.</p>
       </div>
     </div>
-    <div class="panel" style="margin-top:18px;background:linear-gradient(155deg,var(--teal-soft),var(--white));border-color:var(--line-t);">
+
+    <div class="panel" style="margin-top:24px;background:var(--bg-soft);border-color:var(--line-t);">
+      <div class="kicker">Ownership Mechanics — What "Triggered Purchase Options" Actually Means</div>
+      <p style="margin-bottom:12px;">A triggered purchase option is a contractual right — held by the cooperative from project inception — to buy a defined percentage of project ownership at a pre-agreed price when a specified condition is met. It is not a balloon payment. It is not an option that expires if unused. It is a right that accumulates value as the Community Ownership Acquisition Fund grows.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+        <div style="background:var(--white);border-radius:8px;padding:16px;border:1px solid var(--line-t);">
+          <div style="font-size:.78rem;font-weight:700;color:var(--teal-mid);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">Trigger Types</div>
+          <ul style="margin:0;padding:0 0 0 16px;font-size:.88rem;color:var(--text-mid);line-height:1.7;">
+            <li><strong>Revenue milestone:</strong> Fund exercises an option when cumulative net revenue reaches a defined threshold</li>
+            <li><strong>Time-based:</strong> Options vest at defined contract anniversaries (e.g., years 5, 10, 15)</li>
+            <li><strong>Hybrid:</strong> Earlier of revenue milestone or time trigger — per project LLC agreement</li>
+          </ul>
+        </div>
+        <div style="background:var(--white);border-radius:8px;padding:16px;border:1px solid var(--line-t);">
+          <div style="font-size:.78rem;font-weight:700;color:var(--teal-mid);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">Price Structure</div>
+          <ul style="margin:0;padding:0 0 0 16px;font-size:.88rem;color:var(--text-mid);line-height:1.7;">
+            <li><strong>Pre-agreed at project inception</strong> — not market price at time of exercise</li>
+            <li><strong>Based on original capital contribution</strong> plus a defined return, not on appreciated project value</li>
+            <li><strong>Project-by-project variance is permitted</strong> within outer bounds set by Michigrid governance documents</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:14px;font-size:.88rem;color:var(--text-mid);">Per-project variance is allowed within the outer bounds of the governance framework. Specific trigger structures, percentages, and option pricing are defined in each project LLC agreement — subject to Michigrid cooperative approval — and are disclosed to community members before project launch.</p>
+    </div>
+
+    <div class="panel" style="margin-top:16px;background:linear-gradient(155deg,var(--teal-soft),var(--white));border-color:var(--line-t);">
       <div class="kicker">Important distinction</div>
       <p>Community benefit distributions are <strong>patronage-based allocations</strong> derived from cooperative operations and participation — not returns on capital invested. This is legally meaningful: it keeps community participation in the cooperative layer outside of securities regulation. Members benefit because they <em>participate</em>, not because they invested.</p>
     </div>
@@ -588,6 +618,41 @@
 </section>
 
 <!-- ── MUSKEGON ── -->
+
+<!-- ── INVESTOR CAPITAL ── -->
+<section style="background:var(--bg-soft);padding:56px 0;border-top:1px solid var(--line-t);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Capital Structure &amp; Investor Returns</div>
+      <h2>How outside capital works — and why the regulatory design matters.</h2>
+      <p class="lead">Michigrid's structure is designed to attract infrastructure capital, not venture capital. The return profile is utility-like: long-term, predictable, wholesale-market-based. The ownership transition requirement is a feature of that design, not a constraint imposed on it.</p>
+    </div>
+    <div class="grid-3" style="margin-bottom:28px;">
+      <div class="card">
+        <div class="card-icon">&#x26A1;</div>
+        <div class="card-title">Revenue Source</div>
+        <p class="card-body">Investor returns come from MISO wholesale market revenue — capacity payments, energy sales, ancillary services. These may include contracted or market-based revenue streams commonly evaluated in infrastructure finance — capacity payments, energy sales, and ancillary services that are tied to grid operation rather than retail customer relationships.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#x1F4CB;</div>
+        <div class="card-title">Return Structure</div>
+        <p class="card-body">Investor returns are defined in the project LLC agreement — a negotiated, pre-agreed rate on capital contributed, paid from a defined revenue tier. The LLC agreement governs timing, priority, and structure. Community acquisition fund draws from a separate revenue tier.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#x1F504;</div>
+        <div class="card-title">Exit Mechanism</div>
+        <p class="card-body">Capital partners exit through the ownership transition mechanism — the cooperative exercises purchase options at pre-agreed prices over 10–25 years. Investors receive their defined return and return of capital through this structured exit, not through project sale or speculative appreciation.</p>
+      </div>
+    </div>
+    <div class="panel" style="background:var(--white);border-color:var(--line-t);">
+      <div class="kicker">The capital pool question — addressed directly</div>
+      <p style="margin-bottom:12px;">A reasonable policy concern: does the mandatory community ownership transition limit returns enough to constrain the pool of available capital — and does that create ongoing pressure to weaken the framework in favor of higher investor returns and less community benefit?</p>
+      <p style="margin-bottom:12px;">Michigrid is not designed for capital seeking maximum extraction. It is designed for infrastructure capital — pension funds, CDFIs, community development financial institutions, and mission-aligned institutional investors — that accepts utility-level returns in exchange for long-duration, asset-backed exposure. That capital pool exists, and many mission-aligned infrastructure investors evaluate structures with defined terms, asset-backed revenue, and community-benefit requirements.</p>
+      <p style="margin-bottom:12px;">Projects requiring open-ended, venture-style upside are not the intended fit for Michigrid. The model is designed for infrastructure capital seeking defined terms, contracted revenue, and a clear exit pathway.</p>
+      <p style="font-size:.88rem;color:var(--text-mid);">The mandatory transition is defined in project LLC agreements and governed by the Mission Protection Infrastructure Trust — not just policy language. Weakening it would require changes to binding legal agreements and trust instruments, not just changes in policy language. The durability is structural, not rhetorical.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ── IMPLEMENTATION PATHWAY ── -->
 <section style="background:var(--white);padding:56px 0;border-top:1px solid var(--line-t);">
@@ -655,7 +720,7 @@
     <div class="panel" style="margin-top:20px;background:linear-gradient(155deg,var(--bg),var(--white));border-color:var(--line-t);">
       <div class="kicker">How the value flows</div>
       <p style="margin-bottom:10px;">Michigrid is designed to generate value through wholesale energy sales, grid services revenue, and shared infrastructure access. That value flows back to communities through a defined path:</p>
-      <div class="flow-row" style="margin-top:16px;gap:12px;">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px;gap:12px;">
         <div style="background:var(--navy-deep);border-radius:var(--r-sm);padding:16px;text-align:center;flex:1;">
           <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);margin-bottom:6px;">Revenue enters</div>
           <div style="font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.5;">MISO wholesale market payments land in the Project LLC</div>
@@ -694,20 +759,103 @@
         <div class="kicker">Legal Framework</div>
         <h3>Proposition M & Legal Brief</h3>
         <p>The statutory framework (current working draft), legal justification brief covering the Howey analysis and cooperative structure, and revised Articles of Incorporation — organized under MCL 450.3001.</p>
-        <a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0cdc9c3c8c9c7d2c9c48ecfd2c79fd3d5c2cac5c3d49de4cfc3d5cdc5ced480f2c5d1d5c5d3d49a80ecc5c7c1cc80e6d2c1cdc5d7cfd2cb" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--line-t);color:var(--navy);font-size:.85rem;font-weight:600;margin-top:14px;transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-mid)'" onmouseout="this.style.borderColor='var(--line-t)';this.style.color='var(--navy)'">Request documents →</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--line-t);color:var(--navy);font-size:.85rem;font-weight:600;margin-top:14px;transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-mid)'" onmouseout="this.style.borderColor='var(--line-t)';this.style.color='var(--navy)'">Request documents →</a>
       </div>
       <div class="panel">
         <div class="kicker">Pilot & Financial</div>
         <h3>Muskegon Pilot Spec & Financial Flow</h3>
         <p>Phase 1 project specification (components, sites, timeline, grid connection), financial flow architecture (capital in, revenue streams, money path, ownership lifecycle), and system diagram.</p>
-        <a href="/cdn-cgi/l/email-protection#3b52555d547b56525853525c49525f1554495c04484e59515e584f067f54584e565e554f1b695e4a4e5e484f011b6b5257544f1b5a555f1b7d52555a5558525a57" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--line-t);color:var(--navy);font-size:.85rem;font-weight:600;margin-top:14px;transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-mid)'" onmouseout="this.style.borderColor='var(--line-t)';this.style.color='var(--navy)'">Request documents →</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--line-t);color:var(--navy);font-size:.85rem;font-weight:600;margin-top:14px;transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-mid)'" onmouseout="this.style.borderColor='var(--line-t)';this.style.color='var(--navy)'">Request documents →</a>
       </div>
       <div class="panel" style="margin-top:14px;">
         <div class="kicker">For Municipal Officials</div>
         <h3>Muskegon Conversation Package</h3>
         <p>Alliance by Design one-pager, Muskegon-specific stakeholder brief, and municipal conversation guide. Designed for city officials, county representatives, and economic development contacts.</p>
-        <a href="/cdn-cgi/l/email-protection#85ecebe3eac5e8ece6edece2f7ece1abeaf7e2baf6f0e7efe0e6f1b8c8f0ebece6ecf5e4e9a5ccebf4f0ecf7fc" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--line-t);color:var(--navy);font-size:.85rem;font-weight:600;margin-top:14px;transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-mid)'" onmouseout="this.style.borderColor='var(--line-t)';this.style.color='var(--navy)'">Request package →</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--line-t);color:var(--navy);font-size:.85rem;font-weight:600;margin-top:14px;transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal-mid)'" onmouseout="this.style.borderColor='var(--line-t)';this.style.color='var(--navy)'">Request package →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECT LIFECYCLE ── -->
+<section style="background:var(--white);padding:56px 0;border-top:1px solid var(--line-t);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Hypothetical Project Lifecycle</div>
+      <h2>A complete project — from proposal to community ownership.</h2>
+      <p class="lead">The following walks through a Muskegon-model project from inception to community control. Numbers are illustrative. Structure, sequencing, and financial logic are consistent with the Michigrid framework. The critical question this narrative addresses: what does the community actually own at the end, and is it worth owning?</p>
+    </div>
+
+    <div style="background:var(--navy-deep);border-radius:8px;padding:14px 18px;margin-bottom:18px;">
+  <p style="font-size:.85rem;color:#BDE0E4;line-height:1.7;margin:0;"><strong style="color:var(--teal);">Illustrative scenario only.</strong> The figures below are included to show how the mechanism could function structurally. They are not projections, guarantees, investment terms, or expected project outcomes. Actual project economics depend on site conditions, MISO market conditions, capital structure, and feasibility outcomes.</p>
+</div>
+<div style="display:grid;gap:0;border:1px solid var(--line-t);border-radius:12px;overflow:hidden;margin-bottom:28px;">
+      <div style="display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line-t);">
+        <div style="background:var(--navy);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:.72rem;font-weight:700;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Year 0–1</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--white);line-height:1.3;">Validation &amp; Formation</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--bg-soft);">
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;margin:0;">The Muskegon cooperative forms under MCL 450.3001. Legal validation clears. A project LLC is established for the 30MW solar + 40MW wind + 20MW/80MWh storage hub. MISO interconnection queue application is filed. The cooperative holds contractual purchase rights from day one — before construction begins, before outside capital is deployed. For illustration, a project at this scale could require a capital stack in the tens to low hundreds of millions, depending on configuration, site costs, and interconnection requirements. The community's initial ownership stake is small — perhaps 5–10% — but the purchase option structure is locked in the LLC agreement at project inception, at prices that cannot be renegotiated later.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line-t);">
+        <div style="background:var(--navy-deep);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:.72rem;font-weight:700;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Year 1–5</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--white);line-height:1.3;">Construction &amp; Interconnection</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--white);">
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;margin:0;">Construction proceeds. MISO interconnection study completes. Commercial operation begins approximately 3–5 years after queue application — consistent with typical MISO timelines. During construction, the Community Ownership Acquisition Fund begins accumulating from cooperative contributions and in-kind value. The reinvestment reserve also begins its initial seed funding from grant and development contributions. The fund clock starts before revenue begins.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line-t);">
+        <div style="background:var(--navy);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:.72rem;font-weight:700;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Year 5–15</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--white);line-height:1.3;">Revenue &amp; Acquisition</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--bg-soft);">
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;margin:0;">The project begins generating wholesale revenue, with actual amounts depending on MISO market prices, capacity factors, interconnection costs, and operating costs. A defined percentage flows to the Community Ownership Acquisition Fund; a separate percentage to the Asset Reinvestment Reserve. By the midpoint of the transition period, the acquisition fund exercises purchase options, buying an additional tranche of ownership from capital partners at pre-agreed prices. Community ownership grows incrementally. Investor returns continue on their remaining ownership share.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line-t);">
+        <div style="background:var(--navy-deep);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:.72rem;font-weight:700;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Year 15–25</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--white);line-height:1.3;">Majority Ownership</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--white);">
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;margin:0;">Continued accumulation exercises remaining purchase options. By year 20–25, the cooperative holds majority or full ownership. Capital partners have received their pre-agreed return on capital and exit through the option exercise mechanism. Project assets transfer into the Mission Protection Infrastructure Trust — legally restricted from privatization or extraction in perpetuity. The Asset Reinvestment Reserve has been accumulating for 15–20 years by this point.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:160px 1fr;">
+        <div style="background:var(--teal-mid);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Year 25+</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--white);line-height:1.3;">Community Infrastructure</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--teal-soft);">
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;margin:0;">The cooperative owns a revenue-generating, grid-connected energy asset with 10–15 years of remaining useful life and a funded reinvestment reserve. Community benefit distributions begin at scale. A second project is already in mid-development — seeded partly by Project 1 revenue — so the community is not dependent on a single asset lifecycle. The infrastructure trust ensures assets cannot be sold or extracted regardless of member turnover or future cooperative governance changes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="background:var(--bg-soft);border-color:var(--line-t);border-left:4px solid #b54a00;">
+      <div class="kicker" style="color:#b54a00;">The depreciation timing risk — addressed directly</div>
+      <p style="margin-bottom:12px;">The concern: communities gain ownership at exactly the moment assets depreciate — requiring reinvestment capital the community lacks, effectively forcing them to sell ownership back to outside investors to fund the next cycle.</p>
+      <p style="margin-bottom:10px;font-weight:600;color:var(--navy);">Three structural mechanisms address this:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;">
+        <div style="background:var(--white);border-radius:8px;padding:14px;border:1px solid var(--line-t);">
+          <div style="font-size:.78rem;font-weight:700;color:var(--teal-mid);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">Asset Reinvestment Reserve</div>
+          <p style="font-size:.85rem;color:var(--text-mid);line-height:1.65;margin:0;">5% of annual revenue is reserved for capital reinvestment during the revenue-generating years — before ownership transition completes. The reserve is funded from project revenue, not from community capital. By full ownership transfer, 15–20 years of reserve accumulation exists.</p>
+        </div>
+        <div style="background:var(--white);border-radius:8px;padding:14px;border:1px solid var(--line-t);">
+          <div style="font-size:.78rem;font-weight:700;color:var(--teal-mid);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">Useful Life Alignment</div>
+          <p style="font-size:.85rem;color:var(--text-mid);line-height:1.65;margin:0;">Solar panels: 25–35 year useful life. Wind turbines: 20–30 years. The 10–25 year transition timeline is designed so the community achieves full ownership while assets still have meaningful remaining useful life — not at end-of-life. The LLC defines the timeline with asset depreciation schedules in mind.</p>
+        </div>
+        <div style="background:var(--white);border-radius:8px;padding:14px;border:1px solid var(--line-t);">
+          <div style="font-size:.78rem;font-weight:700;color:var(--teal-mid);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">Project Stacking</div>
+          <p style="font-size:.85rem;color:var(--text-mid);line-height:1.65;margin:0;">The cooperative model is designed for multiple projects, not one. As Project 1 matures, Project 2 is in development — partially seeded by Project 1 revenue. Communities are not dependent on a single asset lifecycle. Reinvestment obligations in Project 1 are met with Project 2 revenue while Project 1 assets still produce.</p>
+        </div>
+      </div>
+      <p style="font-size:.87rem;color:var(--text-mid);">These mechanisms do not eliminate reinvestment risk. Infrastructure always requires capital. But they are designed so that the community has time, capital reserves, and operational experience to manage that reinvestment — rather than facing it without preparation at the moment of ownership transfer.</p>
     </div>
   </div>
 </section>
@@ -835,7 +983,7 @@
           <span>How does community ownership actually work? Who ends up owning what?</span>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;color:var(--teal);transition:transform .3s;"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </summary>
-        <div style="padding-bottom:18px;"><p style="font-size:.93rem;color:var(--text-mid);line-height:1.72;">Individual energy projects are intended to be developed through project-specific LLCs that can include outside capital. Community cooperatives are intended to hold a defined contractual and governance position from project inception, with purchase mechanisms that can support ownership transition over time. As projects generate revenue, a defined portion is intended to accumulate in a Community Ownership Acquisition Fund that can exercise purchase options over 10–25 years. No guaranteed prices, no speculation — a structured contractual path toward community control.</p></div>
+        <div style="padding-bottom:18px;"><p style="font-size:.93rem;color:var(--text-mid);line-height:1.72;">Individual energy projects are intended to be developed through project-specific LLCs that can include outside capital. Community cooperatives are intended to hold a defined contractual and governance position from project inception, with purchase mechanisms that can support ownership transition over time. As projects generate revenue, a defined portion is intended to accumulate in a Community Ownership Acquisition Fund that can exercise purchase options over 10–25 years. No guaranteed outcomes, no speculation — a structured contractual path toward community control.</p></div>
       </details>
       <details class="faq-item" style="border-bottom:1px solid var(--line);overflow:hidden;">
         <summary style="width:100%;background:none;border:none;text-align:left;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Outfit',sans-serif;font-size:.98rem;font-weight:600;color:var(--navy-deep);list-style:none;-webkit-appearance:none;">
@@ -846,7 +994,7 @@
       </details>
       <details class="faq-item" style="border-bottom:1px solid var(--line);overflow:hidden;">
         <summary style="width:100%;background:none;border:none;text-align:left;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Outfit',sans-serif;font-size:.98rem;font-weight:600;color:var(--navy-deep);list-style:none;-webkit-appearance:none;">
-          <span>Is this legally safe? Has it been reviewed by attorneys?</span>
+          <span>Has this been legally reviewed?</span>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;color:var(--teal);transition:transform .3s;"><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </summary>
         <div style="padding-bottom:18px;"><p style="font-size:.93rem;color:var(--text-mid);line-height:1.72;">The statutory language, entity structure, and governing documents have been developed through multiple rounds of adversarial legal stress-testing and are prepared for formal counsel review — specifically examining whether the cooperative layer triggers securities regulation under the Howey test. Michigrid has not yet been formally incorporated. Phase I is designed to begin under current MCL 450.3001 following entity formation. Attorney engagement to validate the structure and guide entity formation is the immediate next step before any entity is filed or any capital is raised.</p></div>
@@ -863,7 +1011,7 @@
         <h2>The next step is a conversation.</h2>
         <p class="lead" style="margin-top:12px;margin-bottom:24px;">Michigrid is in active development. Whether you're a community member, a municipal official, an attorney, or an energy partner — the right conversation now is what moves this from framework to reality.</p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;">
-          <a href="/cdn-cgi/l/email-protection#3851565e577855515b50515f4a515c16574a5f074b4d5a525d5b4c057b5755554d56514c41187156494d514a41" class="btn btn-lime">Send a Message</a>
+          <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" class="btn btn-lime">Send a Message</a>
           <a href="https://www.facebook.com/share/1EE1jT5nRe/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="display:inline-flex;align-items:center;gap:9px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             Follow on Facebook
@@ -875,19 +1023,19 @@
           <div class="kicker">For Community Members</div>
           <h4>Learn and get informed</h4>
           <p>Want to understand how Michigrid would work in your community, what it would mean for your energy costs, or how cooperative membership would work? Get in touch.</p>
-          <a href="/cdn-cgi/l/email-protection#1e777078715e73777d7677796c777a30716c79216d6b7c747b7d6a235d7173736b70776a673e57706f6b776c67" class="btn btn-outline" style="width:100%;justify-content:center;">Contact Us</a>
+          <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" class="btn btn-outline" style="width:100%;justify-content:center;">Contact Us</a>
         </div>
         <div class="contact-card">
           <div class="kicker">For Municipal Officials</div>
           <h4>Explore the Muskegon pilot</h4>
           <p>We have a full municipal conversation guide, a one-pager, and a legal justification brief ready for official review. No financial commitment is required to begin the conversation.</p>
-          <a href="/cdn-cgi/l/email-protection#0960676f664964606a61606e7b606d27667b6e367a7c6b636c6a7d344d666a7c646c677d295b6c787c6c7a7d" class="btn btn-teal" style="width:100%;justify-content:center;">Request Documents</a>
+          <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" class="btn btn-teal" style="width:100%;justify-content:center;">Request Documents</a>
         </div>
         <div class="contact-card">
           <div class="kicker">For Attorneys & Partners</div>
           <h4>Review the legal framework</h4>
           <p>A complete legal justification brief, Proposition M (current working draft), and revised Articles of Incorporation are available for counsel review. The structure is designed for scrutiny.</p>
-          <a href="/cdn-cgi/l/email-protection#caa3a4aca58aa7a3a9a2a3adb8a3aee4a5b8adf5b9bfa8a0afa9bef786afadaba6ea98afbca3afbdea98afbbbfafb9be" class="btn btn-navy" style="width:100%;justify-content:center;">Request Legal Brief</a>
+          <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" class="btn btn-navy" style="width:100%;justify-content:center;">Request Legal Brief</a>
         </div>
       </div>
     </div>
@@ -955,7 +1103,7 @@
         </div>
         <p>A cooperative infrastructure platform designed to begin under current Michigan law and enable Michigan communities to develop, own, and govern renewable energy infrastructure — and access wholesale electricity markets together.</p>
         <p style="margin-top:10px;color:rgba(255,255,255,0.35);font-size:.8rem;font-style:italic;">Pre-formation cooperative infrastructure framework designed to begin under current Michigan law — no entity has yet been organized or incorporated.</p>
-        <p style="margin-top:8px;font-size:.85rem;color:rgba(255,255,255,0.55);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="422b2c242d022f2b212a2b25302b266c2d3025">[email&#160;protected]</a></p>
+        <p style="margin-top:8px;font-size:.85rem;color:rgba(255,255,255,0.55);"><a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request" class="__cf_email__" data-cfemail="422b2c242d022f2b212a2b25302b266c2d3025">[email&#160;protected]</a></p>
         <div style="display:flex;gap:12px;margin-top:16px;">
           <a href="https://www.facebook.com/share/1EE1jT5nRe/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 14px;font-size:.82rem;color:rgba(255,255,255,0.7);transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -978,11 +1126,11 @@
       </div>
       <div class="foot-col">
         <h5>Documents</h5>
-        <a href="/cdn-cgi/l/email-protection#157c7b737a55787c767d7c72677c713b7a67722a6660777f70766128517a766078707b6135477064607066612f3545677a657a667c617c7a7b3558">Proposition M (Working Draft) — Request</a>
-        <a href="/cdn-cgi/l/email-protection#50393e363f103d39333839372239347e3f22376f2325323a3533246d143f33253d353e2470023521253523246a701c3537313c701222393536">Legal Justification Brief — Request</a>
-        <a href="/cdn-cgi/l/email-protection#d5bcbbb3ba95b8bcb6bdbcb2a7bcb1fbbaa7b2eaa6a0b7bfb0b6a1e891bab6a0b8b0bba1f587b0a4a0b0a6a1eff585bcb9baa1f586a5b0b6">Muskegon Pilot Specification — Request</a>
-        <a href="/cdn-cgi/l/email-protection#8ce5e2eae3cce1e5efe4e5ebfee5e8a2e3feebb3fff9eee6e9eff8b1c8e3eff9e1e9e2f8acdee9fdf9e9fff8b6accae5e2ede2efe5ede0accae0e3fb">Financial Flow Overview — Request</a>
-        <a href="/cdn-cgi/l/email-protection#b6dfd8d0d9f6dbdfd5dedfd1c4dfd298d9c4d189c5c3d4dcd3d5c28bf2d9d5c3dbd3d8c296e4d3c7c3d3c5c28c96f9d8d39be6d7d1d3c4">Community One-Pager — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request">Proposition M (Working Draft) — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request">Legal Justification Brief — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request">Muskegon Pilot Specification — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request">Financial Flow Overview — Request</a>
+        <a href="mailto:info@michigrid.org?subject=Michigrid%20Document%20Request">Community One-Pager — Request</a>
       </div>
     </div>
     <div class="foot-bottom">
